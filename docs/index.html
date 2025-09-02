@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>HyUI kit5</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
+    <style>
+      .markdown-section p.warn {
+        background: #0195a214;
+      }
+    </style>
+  </head>
+  <style>
+    /* hyuiu樣式被框架吃到 */
+    .tag:before {
+      background-image: none;
+    }
+
+    /* 隱藏套件按鈕 */
+    .demo-copy-code-button {
+      display: none;
+    }
+
+    /* 修改套件頁籤的樣式 */
+    .docsify-tabs--material > .docsify-tabs__tab {
+      border-radius: 0px;
+    }
+
+    body {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .markdown-section ol,
+    .markdown-section p,
+    .markdown-section ul {
+      line-height: 1.8rem;
+    }
+
+    .markdown-section strong {
+      font-weight: 600;
+      color: #047ca6;
+    }
+
+    .sidebar ul li.active > a {
+      border-right: 2.5px solid;
+      color: #1578c7;
+      font-weight: 600;
+    }
+
+    .sidebar ul li a {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .sidebar li {
+      margin: 10px 0;
+    }
+  </style>
+
+  <body>
+    <div id="app"></div>
+    <script>
+      window.$docsify = {
+        name: '<span style="font-weight: 700;"><img width=180 src="logo.png"></span>',
+        repo: '',
+        loadSidebar: true,
+        //嵌套副標題
+        subMaxLevel: 4,
+        // loadNavbar: true,
+        maxLevel: 2,
+        //可以讀取ＪＳ
+        executeScript: true,
+        //換頁在最頂端
+        auto2top: true,
+        //替换主题色
+        themeColor: '#0156a2',
+        //封面
+        coverpage: true,
+        //新增 footer
+        plugins: [
+          function (hook) {
+            var footer = ['<hr/>', '<footer>', '<span>Hyweb Co.,Ltd. &copy;2025.</span>', '<span> All Rights Reserved.</span>', '</footer>'].join('');
+            hook.afterEach(function (html) {
+              return html + footer;
+            });
+          },
+        ],
+        //搜尋列
+        search: {
+          noData: {
+            '/': '沒有相關資訊!',
+          },
+          paths: 'auto',
+          placeholder: {
+            '/': '快速搜尋',
+          },
+          pathNamespaces: ['/components', '/element', '/gridSystem', '/quickStart', '/template'],
+        },
+        // tabs
+        tabs: {
+          persist: true, // default
+          sync: true, // default
+          theme: 'material', // default
+          tabComments: true, // default
+          tabHeadings: true, // default
+        },
+      };
+    </script>
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <!-- 複製code套件 -->
+    <script src="https://unpkg.com/docsify-copy-code@2"></script>
+    <!-- 搜尋列 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <!-- 封面 -->
+    <!-- 代码高亮主题 -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/components/prism-scss.js"></script>
+
+    <!-- docsify-tabs (latest v1.x.x) -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+    <!-- docsify-example-panels (latest) -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-example-panels"></script>
+    <!-- swiper 輪播-->
+    <script src="https://hywebu00.github.io/HyUI_5/vendor/swiper/swiper-bundle.min.js"></script>
+    <!-- fancybox -->
+    <script src="https://hywebu00.github.io/HyUI_5/vendor/fancybox/fancybox.umd.js"></script>
+    <script src="https://hywebu00.github.io/HyUI_5/vendor/fancybox/l10n/zh_TW.umd.js"></script>
+    <script src="https://hywebu00.github.io/HyUI_5/js/main.js"></script>
+    <link rel="stylesheet" href="https://hywebu00.github.io/HyUI_5/css/style.css" />
+  </body>
+</html>

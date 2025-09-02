@@ -1,0 +1,144 @@
+# Accordion 收合式選單
+
+?>相關 css：scss/components/`_accordion.scss`
+
+點擊 `accordionBtn`，來顯示及隱藏另一個元素，點擊後 `accordionList`增加`.active` 可自由設定 css 樣式。
+
+說明文字(展開/收合)從`accordion`中抓取，方便多語系修改。
+
+- **data-state-open="展開"**  
+  收合時顯示的說明文字
+- **data-state-close="收合"**  
+  展開時顯示的說明文字
+
+**範例**
+
+<div class="accordion" data-state-open="展開" data-state-close="收合">
+  <div class="accordionList">
+    <button class="accordionBtn">第一項說明</button>
+    <div class="accordionContent">
+      <div class="content">
+        無障礙相關(皆已由js設定)
+        <ul>
+          <li>
+            <a href="#">按鈕</a>
+            <ol>
+              <li>展開的按鈕項加<code>aria-expanded="true"</code>，未展開的按鈕項加<code>aria-expanded="false"</code></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#">內容</a>
+            <ol>
+              <li>內容加上<code>role="region"</code></li>
+              <li>展開的加上<code>aria-hidden="false"</code>，未展開的加上<code>aria-hidden="true"</code></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#">讓按鈕項與按鈕內容產生關連</a>
+            <ol>
+              <li>頁籤加<code>id="<i>ID</i>"</code>，對應的內容加<code>aria-labelledby="<i>ID</i>"</code><br />例如，第一個頁籤項<code>id="tabpanel_1"</code>，其控制的內容<code>aria-labelledby="tabpanel_1"</code></li>
+              <li>內容區加<code>id="<i>ID</i>"</code>，對應的頁籤項加<code>aria-controls="<i>ID</i>"</code><br />例如，第一個頁籤項<code>aria-controls="tabpanel_1_con"</code>，其控制的內容<code>id="tabpanel_1_con"</code></li>
+            </ol>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="accordionList">
+    <button class="accordionBtn" title="">第二項說明</button>
+    <div class="accordionContent">
+      <div class="content">
+        國影自談王不美一文實別合屋？府性元這子一知於料的親到。一用技年不得就資公，也星樣團怎英班水灣個種決以因世書發定很功行何，下飯通反代命假到一不離護麼錯絕懷旅元人。弟新過，道給仍覺裡水國、醫灣了可實界一上德字什心成但創大品隨品。<br />
+        <a href="#">連結</a>
+        <a href="#">連結</a>
+      </div>
+    </div>
+  </div>
+  <div class="accordionList">
+    <button class="accordionBtn" title="">第三項說明</button>
+    <div class="accordionContent">
+      <div class="content">
+        國影自談王不美一文實別合屋？府性元這子一知於料的親到。一用技年不得就資公，也星樣團怎英班水灣個種決以因世書發定很功行何，下飯通反代命假到一不離護麼錯絕懷旅元人。弟新過，道給仍覺裡水國、醫灣了可實界一上德字什心成但創大品隨品。<br />
+        <a href="#">連結</a>
+        <a href="#">連結</a>
+      </div>
+    </div>
+  </div>
+  <div class="accordionList">
+    <button class="accordionBtn" title="">第四項說明</button>
+    <div class="accordionContent">
+      <div class="content">
+        國影自談王不美一文實別合屋？府性元這子一知於料的親到。一用技年不得就資公，也星樣團怎英班水灣個種決以因世書發定很功行何，下飯通反代命假到一不離護麼錯絕懷旅元人。弟新過，道給仍覺裡水國、醫灣了可實界一上德字什心成但創大品隨品。<br />
+        <a href="#">連結</a>
+        <a href="#">連結</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- tabs:start -->
+
+### **HTML**
+
+```html
+<div class="accordion" data-state-open="展開" data-state-close="收合">
+  <div class="accordionList">
+    <button class="accordionBtn">第一項說明</button>
+    <div class="accordionContent">
+      <div class="content"></div>
+    </div>
+  </div>
+  <div class="accordionList">
+    <button class="accordionBtn" title="">第二項說明</button>
+    <div class="accordionContent">
+      <div class="content"></div>
+    </div>
+  </div>
+  <div class="accordionList">
+    <button class="accordionBtn" title="">第三項說明</button>
+    <div class="accordionContent">
+      <div class="content"></div>
+    </div>
+  </div>
+  <div class="accordionList">
+    <button class="accordionBtn" title="">第四項說明</button>
+    <div class="accordionContent">
+      <div class="content"></div>
+    </div>
+  </div>
+</div>
+```
+
+### **JS**
+
+```javascript
+// option是基礎預設，如不需要更改可以直接使用
+// accordionFunction('.target')，如有多組accordion請另外設定target
+accordionFunction({
+  target: '.accordion',
+  openContent: false, // 預設先展開所有內容
+  openDefault: true, // 是否有預設開啟
+  openIndex: 0, // 預設開啟第幾個
+  autoClose: true, // 自動關閉其他開啟內容
+  openSwitch: true, // 是否可開合/切換
+});
+```
+
+<!-- tabs:end -->
+
+<style>
+  .accordion .content{
+    position:relative !important;
+    left:auto !important;
+  }
+</style>
+<script>
+accordionFunction({
+  target: '.accordion',
+  openContent: false, // 預設先展開所有內容
+  openDefault: true, // 是否有預設開啟
+  openIndex: 0, // 預設開啟第幾個
+  autoClose: true, // 自動關閉其他開啟內容
+  openSwitch: true, // 是否可開合/切換
+});
+</script>
