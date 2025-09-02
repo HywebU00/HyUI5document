@@ -217,7 +217,7 @@ hyUI5
 
 #### FancyBox
 
-知名的燈箱套件，使用需購買使用憑證。
+知名的燈箱套件，使用需要依照案件需求購買購買不同的使用憑證，請先與前端人員確認。
 
 ```html
 <script src="vendor/fancybox/fancybox.umd.js"></script>

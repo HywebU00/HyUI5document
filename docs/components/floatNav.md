@@ -1,4 +1,4 @@
-# float_nav 固定側邊欄
+# floatNav 固定側邊欄
 
 ?>相關 css：scss/components/`_floatNav.scss`
 
@@ -40,25 +40,25 @@ HyUI 提供固定`側邊欄`的作法，固定特定位置，而不隨滾動欄�
   <ul class="typeB">
     <li>
       <a href="#">
-        <div class="pic"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/grid_w.svg" /></div>
+        <div class="pic"><i class="i_account_circle_w"></i></div>
         <div class="listTitle">側邊第一選項</div>
       </a>
     </li>
     <li>
       <a href="#">
-        <div class="pic"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/setting_w.svg" /></div>
+        <div class="pic"><i class="i_account_circle_w"></i></div>
         <div class="listTitle">側邊第二選項</div>
       </a>
     </li>
     <li>
       <a href="#">
-        <div class="pic"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/home_w.svg" /></div>
+        <div class="pic"><i class="i_account_circle_w"></i></div>
         <div class="listTitle">側邊第三選項</div>
       </a>
     </li>
     <li>
       <a href="#">
-        <div class="pic"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/heart_w.svg" /></div>
+        <div class="pic"><i class="i_account_circle_w"></i></div>
         <div class="listTitle">側邊第四選項</div>
       </a>
     </li>

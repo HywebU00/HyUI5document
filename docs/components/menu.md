@@ -9,7 +9,7 @@
 
 主選單可以在`customize.js`中設定是否要`置頂`和是否為`megamenu`以及`手機版選單是否要外連和展開`同時可用。
 
-**範例**
+<!-- **範例**
 
 <div class="mainMenu">
   <div class="container">
@@ -121,7 +121,7 @@
       </ul>
     </nav>
   </div>
-</div>
+</div> -->
 
 <!-- tabs:start -->
 
@@ -273,9 +273,9 @@ mainMenu({
   }
 </style>
 <script>
-mainMenu({
-  sticky: false, // 是否置頂
-  mega: false, // 是否megaMenu
-  needLink: false, // 如果同時需要連結和下層功能時(手機版選單)
-});
+// mainMenu({
+//   sticky: false, // 是否置頂
+//   mega: false, // 是否megaMenu
+//   needLink: false, // 如果同時需要連結和下層功能時(手機版選單)
+// });
 </script>

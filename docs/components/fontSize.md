@@ -84,10 +84,6 @@ _toggleDropdown('.subNavList .fontSize > button', '.subNavList .fontSize ul'); /
   </div>
   </div>
 
-<div class="mainContentBox">
-<div class="mainContent">
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam excepturi tempore, enim unde modi error ea est omnis facilis nisi odio alias quod doloremque ipsam illo sint sapiente. Sit, libero.</div>
-</div>
 <!-- tabs:start -->
 
 #### **HTML**

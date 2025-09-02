@@ -12,6 +12,8 @@
 
 **多層**或是**一個項目有多個輸入**的情況下使用`fieldset`和`legend`，目的在於可以更明確的讓無障礙使用者知道層級或是群組內容。
 
+`fieldset`和`legend`的用法
+
 ```html
 <fieldset>
   <legend>地址</legend>
@@ -21,6 +23,8 @@
   <input type="text" />
 </fieldset>
 ```
+
+套用 HyUI 的用法
 
 <!-- tabs:start -->
 
@@ -42,8 +46,22 @@
 ```html
 <form class="formBox">
   <fieldset class="formList" aria-labelledby="abc">
-    <legend class="formListTitle" id="abc">標題</legend>
-    <div class="formContent">...</div>
+    <legend class="formListTitle" id="abc">區塊標題</legend>
+    <div class="formContent"></div>
+  </fieldset>
+</form>
+
+<!-- 或是 -->
+
+<form class="formBox">
+  <fieldset class="formList" aria-labelledby="abc">
+    <legend class="formListTitle" id="abc">區塊標題</legend>
+    <div class="formContent">
+      <div class="formList">
+        <legend class="formListTitle" id="abc">標題</legend>
+        <div class="formContent">...</div>
+      </div>
+    </div>
   </fieldset>
 </form>
 ```
@@ -396,28 +414,25 @@
       <div class="inputBox">
         <i class="i_lock_dk"></i>
         <input class="password" type="password" name="" id="targetId4" autocomplete="current-password" placeholder="請輸入密碼" />
-        <button class="i_visibility_dk" type="button" data-show="顯示密碼" data-hide="隱藏密碼"></button>
+        <button type="button" class="formEyes" data-show="顯示密碼" data-hide="隱藏密碼" aria-label="顯示密碼" aria-pressed="false"></button>
       </div>
-      <div class="formNotice">
-        <span>這是一般提醒訊息區塊</span>
-        <button type="button" class="noticeClose" aria-label="關閉提醒"></button>
-      </div>
-      <div class="formNoticeInfo">
-        <span>這是一般提醒訊息區塊</span>
-        <button type="button" class="noticeClose" aria-label="關閉提醒"></button>
-      </div>
-      <div class="formNoticeSuccess">
-        <span>您已成功登入</span>
-        <button type="button" class="noticeClose" aria-label="關閉提醒"></button>
-      </div>
-      <div class="formNoticeWarning">
-        <span>這似乎不是一個正常的Email格式</span>
-        <button type="button" class="noticeClose" aria-label="關閉提醒"></button>
-      </div>
-      <div class="formNoticeError">
-        <span>您輸入的帳號密碼有誤！</span>
-        <button type="button" class="noticeClose" aria-label="關閉提醒"></button>
-      </div>
+      <div role="alert" id="alert1">
+                          <div class="formNotice">
+                            <span>這是一般提醒訊息區塊</span>
+                          </div>
+                          <div class="formNoticeInfo">
+                            <span>這是一般提醒訊息區塊</span>
+                          </div>
+                          <div class="formNoticeSuccess">
+                            <span>您已成功登入</span>
+                          </div>
+                          <div class="formNoticeWarning">
+                            <span>這似乎不是一個正常的Email格式</span>
+                          </div>
+                          <div class="formNoticeError">
+                            <span>您輸入的帳號密碼有誤！</span>
+                          </div>
+                        </div>
     </div>
   </div>
 </form>

@@ -1,6 +1,6 @@
 # Download / 檔案下載
 
-?>檔案名稱：scss/pages/`_cp.scss`
+?>檔案名稱：scss/pages/`_download.scss`
 
 **範例**
 

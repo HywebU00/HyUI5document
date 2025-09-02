@@ -9,163 +9,337 @@
 
 Icon 順序依英文字母排序
 
-<!-- panels:start -->
-<div class="icon_demo">
-  <ul>
-    <!-- A -->
-    <li class="i_add_dk"></li>
-    <li class="i_apple_dk"></li>
-    <li class="i_arrowLeft_dk"></li>
-    <li class="i_arrowRight_dk"></li>
-    <li class="i_arrowUp_dk"></li>
-    <li class="i_arrowDown_dk"></li>
-    <!-- B -->
-    <li class="i_bookmark_dk"></li>
-    <!-- C -->
-    <li class="i_calendar_dk"></li>
-    <li class="i_chat_dk"></li>
-    <li class="i_check_dk"></li>
-    <li class="i_clock_dk"></li>
-    <li class="i_close_dk"></li>
-    <li class="i_copy_dk"></li>
-    <!-- D -->
-    <li class="i_dot_dk"></li>
-    <!-- E -->
-    <li class="i_edit_dk"></li>
-    <!-- F -->
-    <li class="i_facebook_dk"></li>
-    <!-- G -->
-    <li class="i_global_dk"></li>
-    <li class="i_googleplus_dk"></li>
-    <li class="i_grid_dk"></li>
-    <!-- H -->
-    <li class="i_heart_dk"></li>
-    <li class="i_home_dk"></li>
-    <!-- I -->
-    <li class="i_info_dk"></li>
-    <!-- J -->
-    <!-- K -->
-    <!-- L -->
-    <li class="i_layout_dk"></li>
-    <li class="i_link_dk"></li>
-    <li class="i_linkedin_dk"></li>
-    <li class="i_lock_dk"></li>
-    <!-- M -->
-    <li class="i_mail_dk"></li>
-    <li class="i_man_dk"></li>
-    <li class="i_minus_dk"></li>
-    <li class="i_move_dk"></li>
-    <!-- N -->
-    <!-- O -->
-    <li class="i_order_dk"></li>
-    <!-- P -->
-    <li class="i_photo_dk"></li>
-    <li class="i_pick_dk"></li>
-    <li class="i_play_dk"></li>
-    <!-- Q -->
-    <!-- R -->
-    <li class="i_reflash_dk"></li>
-    <li class="i_rss_dk"></li>
-    <!-- S -->
-    <li class="i_search_dk"></li>
-    <li class="i_setting_dk"></li>
-    <li class="i_sort_dk"></li>
-    <li class="i_star_dk"></li>
-    <!-- T -->
-    <li class="i_top_dk"></li>
-    <li class="i_trash_dk"></li>
-    <li class="i_twitter_dk"></li>
-    <!-- U -->
-    <!-- V -->
-    <li class="i_video_dk"></li>
-    <li class="i_view_dk"></li>
-    <li class="i_vimeo_dk"></li>
-    <!-- W -->
-    <!-- X -->
-    <!-- Y -->
-    <li class="i_youtube_dk"></li>
-    <!-- Z -->
-  </ul>
-</div>
-<!-- panels:end -->
-<!-- tabs:start -->
+<div class="iconDemo dk">
+      <table>
+        <tbody>
+          <tr>
+            <td><i class="i_account_circle_dk"></i></td>
+            <td>i_account_circle_dk</td>
+            <td><i class="i_add_dk"></i></td>
+            <td>i_add_dk</td>
+            <td><i class="i_arrow_back_dk"></i></td>
+            <td>i_arrow_back_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_arrow_down_dk"></i></td>
+            <td>i_arrow_down_dk</td>
+            <td><i class="i_arrow_forward_dk"></i></td>
+            <td>i_arrow_forward_dk</td>
+            <td><i class="i_arrow_left_dk"></i></td>
+            <td>i_arrow_left_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_arrow_right_dk"></i></td>
+            <td>i_arrow_right_dk</td>
+            <td><i class="i_arrow_up_dk"></i></td>
+            <td>i_arrow_up_dk</td>
+            <td><i class="i_arrows_output_dk"></i></td>
+            <td>i_arrows_output_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_attach_file_dk"></i></td>
+            <td>i_attach_file_dk</td>
+            <td><i class="i_back_dk"></i></td>
+            <td>i_back_dk</td>
+            <td><i class="i_block_dk"></i></td>
+            <td>i_block_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_book_dk"></i></td>
+            <td>i_book_dk</td>
+            <td><i class="i_browse_dk"></i></td>
+            <td>i_browse_dk</td>
+            <td><i class="i_calendar_1_dk"></i></td>
+            <td>i_calendar_1_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_calendar_2_dk"></i></td>
+            <td>i_calendar_2_dk</td>
+            <td><i class="i_call_made_dk"></i></td>
+            <td>i_call_made_dk</td>
+            <td><i class="i_call_received_dk"></i></td>
+            <td>i_call_received_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_cancel_dk"></i></td>
+            <td>i_cancel_dk</td>
+            <td><i class="i_check_circle_dk"></i></td>
+            <td>i_check_circle_dk</td>
+            <td><i class="i_check_dk"></i></td>
+            <td>i_check_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_clock_dk"></i></td>
+            <td>i_clock_dk</td>
+            <td><i class="i_close_dk"></i></td>
+            <td>i_close_dk</td>
+            <td><i class="i_cloud_download_dk"></i></td>
+            <td>i_cloud_download_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_cloud_upload_dk"></i></td>
+            <td>i_cloud_upload_dk</td>
+            <td><i class="i_contrast_dk"></i></td>
+            <td>i_contrast_dk</td>
+            <td><i class="i_database_dk"></i></td>
+            <td>i_database_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_delete_dk"></i></td>
+            <td>i_delete_dk</td>
+            <td><i class="i_description_dk"></i></td>
+            <td>i_description_dk</td>
+            <td><i class="i_desktop_landscape_dk"></i></td>
+            <td>i_desktop_landscape_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_developer_guide_dk"></i></td>
+            <td>i_developer_guide_dk</td>
+            <td><i class="i_distance_dk"></i></td>
+            <td>i_distance_dk</td>
+            <td><i class="i_download_dk"></i></td>
+            <td>i_download_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_edit_dk"></i></td>
+            <td>i_edit_dk</td>
+            <td><i class="i_error_dk"></i></td>
+            <td>i_error_dk</td>
+            <td><i class="i_expand_all_dk"></i></td>
+            <td>i_expand_all_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_favorite_dk"></i></td>
+            <td>i_favorite_dk</td>
+            <td><i class="i_first_page_dk"></i></td>
+            <td>i_first_page_dk</td>
+            <td><i class="i_folder_dk"></i></td>
+            <td>i_folder_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_format_size_dk"></i></td>
+            <td>i_format_size_dk</td>
+            <td><i class="i_help_dk"></i></td>
+            <td>i_help_dk</td>
+            <td><i class="i_home_dk"></i></td>
+            <td>i_home_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_image_dk"></i></td>
+            <td>i_image_dk</td>
+            <td><i class="i_info_dk"></i></td>
+            <td>i_info_dk</td>
+            <td><i class="i_key_vertical_dk"></i></td>
+            <td>i_key_vertical_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_language_dk"></i></td>
+            <td>i_language_dk</td>
+            <td><i class="i_last_page_dk"></i></td>
+            <td>i_last_page_dk</td>
+            <td><i class="i_leaderboard_dk"></i></td>
+            <td>i_leaderboard_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_list_dk"></i></td>
+            <td>i_list_dk</td>
+            <td><i class="i_lock_dk"></i></td>
+            <td>i_lock_dk</td>
+            <td><i class="i_logout_dk"></i></td>
+            <td>i_logout_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_mail_dk"></i></td>
+            <td>i_mail_dk</td>
+            <td><i class="i_menu_dk"></i></td>
+            <td>i_menu_dk</td>
+            <td><i class="i_more_vert_dk"></i></td>
+            <td>i_more_vert_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_new_releases_dk"></i></td>
+            <td>i_new_releases_dk</td>
+            <td><i class="i_notifications_dk"></i></td>
+            <td>i_notifications_dk</td>
+            <td><i class="i_open_in_new_dk"></i></td>
+            <td>i_open_in_new_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_palette_dk"></i></td>
+            <td>i_palette_dk</td>
+            <td><i class="i_pause_dk"></i></td>
+            <td>i_pause_dk</td>
+            <td><i class="i_person_dk"></i></td>
+            <td>i_person_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_play_arrow_dk"></i></td>
+            <td>i_play_arrow_dk</td>
+            <td><i class="i_print_dk"></i></td>
+            <td>i_print_dk</td>
+            <td><i class="i_refresh_dk"></i></td>
+            <td>i_refresh_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_remove_dk"></i></td>
+            <td>i_remove_dk</td>
+            <td><i class="i_search_dk"></i></td>
+            <td>i_search_dk</td>
+            <td><i class="i_select_arrow_dk"></i></td>
+            <td>i_select_arrow_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_settings_dk"></i></td>
+            <td>i_settings_dk</td>
+            <td><i class="i_share_dk"></i></td>
+            <td>i_share_dk</td>
+            <td><i class="i_slash_dk"></i></td>
+            <td>i_slash_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_star_dk"></i></td>
+            <td>i_star_dk</td>
+            <td><i class="i_swap_vert_dk"></i></td>
+            <td>i_swap_vert_dk</td>
+            <td><i class="i_sync_dk"></i></td>
+            <td>i_sync_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_tag_dk"></i></td>
+            <td>i_tag_dk</td>
+            <td><i class="i_tooltip_dk"></i></td>
+            <td>i_tooltip_dk</td>
+            <td><i class="i_upload_dk"></i></td>
+            <td>i_upload_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_visibility_dk"></i></td>
+            <td>i_visibility_dk</td>
+            <td><i class="i_visibility_off_dk"></i></td>
+            <td>i_visibility_off_dk</td>
+            <td><i class="i_voice_dk"></i></td>
+            <td>i_voice_dk</td>
+          </tr>
+          <tr>
+            <td><i class="i_warning_dk"></i></td>
+            <td>i_warning_dk</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
 #### **HTML**
 
 ```html
 <!-- Icon 黑色 -->
 <!-- A -->
-<li class="i_add_dk"></li>
-<li class="i_apple_dk"></li>
-<li class="i_arrowLeft_dk"></li>
-<li class="i_arrowRight_dk"></li>
-<li class="i_arrowUp_dk"></li>
-<li class="i_arrowDown_dk"></li>
+<i class="i_account_circle_dk"></i>
+<i class="i_add_dk"></i>
+<i class="i_arrow_back_dk"></i>
+<i class="i_arrow_down_dk"></i>
+<i class="i_arrow_forward_dk"></i>
+<i class="i_arrow_left_dk"></i>
+<i class="i_arrow_right_dk"></i>
+<i class="i_arrow_up_dk"></i>
+<i class="i_arrows_output_dk"></i>
+<i class="i_attach_file_dk"></i>
 <!-- B -->
-<li class="i_bookmark_dk"></li>
+<i class="i_back_dk"></i>
+<i class="i_block_dk"></i>
+<i class="i_book_dk"></i>
+<i class="i_browse_dk"></i>
 <!-- C -->
-<li class="i_calendar_dk"></li>
-<li class="i_chat_dk"></li>
-<li class="i_check_dk"></li>
-<li class="i_clock_dk"></li>
-<li class="i_close_dk"></li>
-<li class="i_copy_dk"></li>
+<i class="i_calendar_1_dk"></i>
+<i class="i_calendar_2_dk"></i>
+<i class="i_call_made_dk"></i>
+<i class="i_call_received_dk"></i>
+<i class="i_cancel_dk"></i>
+<i class="i_check_circle_dk"></i>
+<i class="i_check_dk"></i>
+<i class="i_clock_dk"></i>
+<i class="i_close_dk"></i>
+<i class="i_cloud_download_dk"></i>
+<i class="i_cloud_upload_dk"></i>
+<i class="i_contrast_dk"></i>
 <!-- D -->
-<li class="i_dot_dk"></li>
+<i class="i_database_dk"></i>
+<i class="i_delete_dk"></i>
+<i class="i_description_dk"></i>
+<i class="i_desktop_landscape_dk"></i>
+<i class="i_developer_guide_dk"></i>
+<i class="i_distance_dk"></i>
+<i class="i_download_dk"></i>
 <!-- E -->
-<li class="i_edit_dk"></li>
+<i class="i_edit_dk"></i>
+<i class="i_error_dk"></i>
+<i class="i_expand_all_dk"></i>
 <!-- F -->
-<li class="i_facebook_dk"></li>
+<i class="i_favorite_dk"></i>
+<i class="i_first_page_dk"></i>
+<i class="i_folder_dk"></i>
+<i class="i_format_size_dk"></i>
 <!-- G -->
-<li class="i_global_dk"></li>
-<li class="i_googleplus_dk"></li>
-<li class="i_grid_dk"></li>
 <!-- H -->
-<li class="i_heart_dk"></li>
-<li class="i_home_dk"></li>
+<i class="i_help_dk"></i>
+<i class="i_home_dk"></i>
 <!-- I -->
-<li class="i_info_dk"></li>
+<i class="i_image_dk"></i>
+<i class="i_info_dk"></i>
 <!-- J -->
 <!-- K -->
+<i class="i_key_vertical_dk"></i>
 <!-- L -->
-<li class="i_layout_dk"></li>
-<li class="i_link_dk"></li>
-<li class="i_linkedin_dk"></li>
-<li class="i_lock_dk"></li>
+<i class="i_language_dk"></i>
+<i class="i_last_page_dk"></i>
+<i class="i_leaderboard_dk"></i>
+<i class="i_list_dk"></i>
+<i class="i_lock_dk"></i>
+<i class="i_logout_dk"></i>
 <!-- M -->
-<li class="i_mail_dk"></li>
-<li class="i_man_dk"></li>
-<li class="i_minus_dk"></li>
-<li class="i_move_dk"></li>
+<i class="i_mail_dk"></i>
+<i class="i_menu_dk"></i>
+<i class="i_more_vert_dk"></i>
 <!-- N -->
+<i class="i_new_releases_dk"></i>
+<i class="i_notifications_dk"></i>
 <!-- O -->
-<li class="i_order_dk"></li>
+<i class="i_open_in_new_dk"></i>
 <!-- P -->
-<li class="i_photo_dk"></li>
-<li class="i_pick_dk"></li>
-<li class="i_play_dk"></li>
+<i class="i_palette_dk"></i>
+<i class="i_pause_dk"></i>
+<i class="i_person_dk"></i>
+<i class="i_play_arrow_dk"></i>
+<i class="i_print_dk"></i>
 <!-- Q -->
 <!-- R -->
-<li class="i_reflash_dk"></li>
-<li class="i_rss_dk"></li>
+<i class="i_refresh_dk"></i>
+<i class="i_remove_dk"></i>
 <!-- S -->
-<li class="i_search_dk"></li>
-<li class="i_setting_dk"></li>
-<li class="i_sort_dk"></li>
-<li class="i_star_dk"></li>
+<i class="i_search_dk"></i>
+<i class="i_select_arrow_dk"></i>
+<i class="i_settings_dk"></i>
+<i class="i_share_dk"></i>
+<i class="i_slash_dk"></i>
+<i class="i_star_dk"></i>
+<i class="i_swap_vert_dk"></i>
+<i class="i_sync_dk"></i>
 <!-- T -->
-<li class="i_top_dk"></li>
-<li class="i_trash_dk"></li>
-<li class="i_twitter_dk"></li>
+<i class="i_tag_dk"></i>
+<i class="i_tooltip_dk"></i>
 <!-- U -->
+<i class="i_upload_dk"></i>
 <!-- V -->
-<li class="i_video_dk"></li>
-<li class="i_view_dk"></li>
-<li class="i_vimeo_dk"></li>
+<i class="i_visibility_dk"></i>
+<i class="i_visibility_off_dk"></i>
+<i class="i_voice_dk"></i>
 <!-- W -->
+<i class="i_warning_dk"></i>
 <!-- X -->
 <!-- Y -->
-<li class="i_youtube_dk"></li>
 <!-- Z -->
 ```
 
@@ -175,201 +349,357 @@ Icon 順序依英文字母排序
 
 Icon 順序依英文字母排序
 
-<!-- panels:start -->
-<div class="icon_demo invert icon_demo_light">
-  <ul>
-    <!-- A -->
-    <li class="i_add"></li>
-    <li class="i_apple"></li>
-    <li class="i_arrowLeft"></li>
-    <li class="i_arrowRight"></li>
-    <li class="i_arrowUp"></li>
-    <li class="i_arrowDown"></li>
-    <!-- B -->
-    <li class="i_bookmark"></li>
-    <!-- C -->
-    <li class="i_calendar"></li>
-    <li class="i_chat"></li>
-    <li class="i_check"></li>
-    <li class="i_clock"></li>
-    <li class="i_close"></li>
-    <li class="i_copy"></li>
-    <!-- D -->
-    <li class="i_dot"></li>
-    <!-- E -->
-    <li class="i_edit"></li>
-    <!-- F -->
-    <li class="i_facebook"></li>
-    <!-- G -->
-    <li class="i_global"></li>
-    <li class="i_googleplus"></li>
-    <li class="i_grid"></li>
-    <!-- H -->
-    <li class="i_heart"></li>
-    <li class="i_home"></li>
-    <!-- I -->
-    <li class="i_info"></li>
-    <!-- J -->
-    <!-- K -->
-    <!-- L -->
-    <li class="i_layout"></li>
-    <li class="i_link"></li>
-    <li class="i_linkedin"></li>
-    <li class="i_lock"></li>
-    <!-- M -->
-    <li class="i_mail"></li>
-    <li class="i_man"></li>
-    <li class="i_minus"></li>
-    <li class="i_move"></li>
-    <!-- N -->
-    <!-- O -->
-    <li class="i_order"></li>
-    <!-- P -->
-    <li class="i_photo"></li>
-    <li class="i_pick"></li>
-    <li class="i_play"></li>
-    <!-- Q -->
-    <!-- R -->
-    <li class="i_reflash"></li>
-    <li class="i_rss"></li>
-    <!-- S -->
-    <li class="i_search"></li>
-    <li class="i_setting"></li>
-    <li class="i_sort"></li>
-    <li class="i_star"></li>
-    <!-- T -->
-    <li class="i_top"></li>
-    <li class="i_trash"></li>
-    <li class="i_twitter"></li>
-    <!-- U -->
-    <!-- V -->
-    <li class="i_video"></li>
-    <li class="i_view"></li>
-    <li class="i_vimeo"></li>
-    <!-- W -->
-    <!-- X -->
-    <!-- Y -->
-    <li class="i_youtube"></li>
-    <!-- Z -->
-  </ul>
-</div>
-<!-- panels:end -->
-<!-- tabs:start -->
+<div class="iconDemo w">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><i class="i_account_circle_w"></i></td>
+                      <td>i_account_circle_w</td>
+                      <td><i class="i_add_w"></i></td>
+                      <td>i_add_w</td>
+                      <td><i class="i_arrow_back_w"></i></td>
+                      <td>i_arrow_back_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_arrow_down_w"></i></td>
+                      <td>i_arrow_down_w</td>
+                      <td><i class="i_arrow_forward_w"></i></td>
+                      <td>i_arrow_forward_w</td>
+                      <td><i class="i_arrow_left_w"></i></td>
+                      <td>i_arrow_left_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_arrow_right_w"></i></td>
+                      <td>i_arrow_right_w</td>
+                      <td><i class="i_arrow_up_w"></i></td>
+                      <td>i_arrow_up_w</td>
+                      <td><i class="i_arrows_output_w"></i></td>
+                      <td>i_arrows_output_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_attach_file_w"></i></td>
+                      <td>i_attach_file_w</td>
+                      <td><i class="i_back_w"></i></td>
+                      <td>i_back_w</td>
+                      <td><i class="i_block_w"></i></td>
+                      <td>i_block_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_book_w"></i></td>
+                      <td>i_book_w</td>
+                      <td><i class="i_browse_w"></i></td>
+                      <td>i_browse_w</td>
+                      <td><i class="i_calendar_1_w"></i></td>
+                      <td>i_calendar_1_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_calendar_2_w"></i></td>
+                      <td>i_calendar_2_w</td>
+                      <td><i class="i_call_made_w"></i></td>
+                      <td>i_call_made_w</td>
+                      <td><i class="i_call_received_w"></i></td>
+                      <td>i_call_received_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_cancel_w"></i></td>
+                      <td>i_cancel_w</td>
+                      <td><i class="i_check_circle_w"></i></td>
+                      <td>i_check_circle_w</td>
+                      <td><i class="i_check_w"></i></td>
+                      <td>i_check_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_clock_w"></i></td>
+                      <td>i_clock_w</td>
+                      <td><i class="i_close_w"></i></td>
+                      <td>i_close_w</td>
+                      <td><i class="i_cloud_download_w"></i></td>
+                      <td>i_cloud_download_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_cloud_upload_w"></i></td>
+                      <td>i_cloud_upload_w</td>
+                      <td><i class="i_contrast_w"></i></td>
+                      <td>i_contrast_w</td>
+                      <td><i class="i_database_w"></i></td>
+                      <td>i_database_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_delete_w"></i></td>
+                      <td>i_delete_w</td>
+                      <td><i class="i_description_w"></i></td>
+                      <td>i_description_w</td>
+                      <td><i class="i_desktop_landscape_w"></i></td>
+                      <td>i_desktop_landscape_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_developer_guide_w"></i></td>
+                      <td>i_developer_guide_w</td>
+                      <td><i class="i_distance_w"></i></td>
+                      <td>i_distance_w</td>
+                      <td><i class="i_download_w"></i></td>
+                      <td>i_download_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_edit_w"></i></td>
+                      <td>i_edit_w</td>
+                      <td><i class="i_error_w"></i></td>
+                      <td>i_error_w</td>
+                      <td><i class="i_expand_all_w"></i></td>
+                      <td>i_expand_all_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_favorite_w"></i></td>
+                      <td>i_favorite_w</td>
+                      <td><i class="i_first_page_w"></i></td>
+                      <td>i_first_page_w</td>
+                      <td><i class="i_folder_w"></i></td>
+                      <td>i_folder_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_format_size_w"></i></td>
+                      <td>i_format_size_w</td>
+                      <td><i class="i_help_w"></i></td>
+                      <td>i_help_w</td>
+                      <td><i class="i_home_w"></i></td>
+                      <td>i_home_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_image_w"></i></td>
+                      <td>i_image_w</td>
+                      <td><i class="i_info_w"></i></td>
+                      <td>i_info_w</td>
+                      <td><i class="i_key_vertical_w"></i></td>
+                      <td>i_key_vertical_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_language_w"></i></td>
+                      <td>i_language_w</td>
+                      <td><i class="i_last_page_w"></i></td>
+                      <td>i_last_page_w</td>
+                      <td><i class="i_leaderboard_w"></i></td>
+                      <td>i_leaderboard_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_list_w"></i></td>
+                      <td>i_list_w</td>
+                      <td><i class="i_lock_w"></i></td>
+                      <td>i_lock_w</td>
+                      <td><i class="i_logout_w"></i></td>
+                      <td>i_logout_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_mail_w"></i></td>
+                      <td>i_mail_w</td>
+                      <td><i class="i_menu_w"></i></td>
+                      <td>i_menu_w</td>
+                      <td><i class="i_more_vert_w"></i></td>
+                      <td>i_more_vert_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_new_releases_w"></i></td>
+                      <td>i_new_releases_w</td>
+                      <td><i class="i_notifications_w"></i></td>
+                      <td>i_notifications_w</td>
+                      <td><i class="i_open_in_new_w"></i></td>
+                      <td>i_open_in_new_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_palette_w"></i></td>
+                      <td>i_palette_w</td>
+                      <td><i class="i_pause_w"></i></td>
+                      <td>i_pause_w</td>
+                      <td><i class="i_person_w"></i></td>
+                      <td>i_person_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_play_arrow_w"></i></td>
+                      <td>i_play_arrow_w</td>
+                      <td><i class="i_print_w"></i></td>
+                      <td>i_print_w</td>
+                      <td><i class="i_refresh_w"></i></td>
+                      <td>i_refresh_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_remove_w"></i></td>
+                      <td>i_remove_w</td>
+                      <td><i class="i_search_w"></i></td>
+                      <td>i_search_w</td>
+                      <!-- <td><i class="i_select_arrow_w"></i></td>
+                        <td>i_select_arrow_w</td> -->
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_settings_w"></i></td>
+                      <td>i_settings_w</td>
+                      <td><i class="i_share_w"></i></td>
+                      <td>i_share_w</td>
+                      <!-- <td><i class="i_slash_w"></i></td>
+                        <td>i_slash_w</td> -->
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_star_w"></i></td>
+                      <td>i_star_w</td>
+                      <td><i class="i_swap_vert_w"></i></td>
+                      <td>i_swap_vert_w</td>
+                      <td><i class="i_sync_w"></i></td>
+                      <td>i_sync_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_tag_w"></i></td>
+                      <td>i_tag_w</td>
+                      <td><i class="i_tooltip_w"></i></td>
+                      <td>i_tooltip_w</td>
+                      <td><i class="i_upload_w"></i></td>
+                      <td>i_upload_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_visibility_w"></i></td>
+                      <td>i_visibility_w</td>
+                      <td><i class="i_visibility_off_w"></i></td>
+                      <td>i_visibility_off_w</td>
+                      <td><i class="i_voice_w"></i></td>
+                      <td>i_voice_w</td>
+                    </tr>
+                    <tr>
+                      <td><i class="i_warning_w"></i></td>
+                      <td>i_warning_w</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
 #### **HTML**
 
 ```html
 <!-- Icon 白色 -->
 <!-- A -->
-<li class="i_add"></li>
-<li class="i_apple"></li>
-<li class="i_arrowLeft"></li>
-<li class="i_arrowRight"></li>
-<li class="i_arrowUp"></li>
-<li class="i_arrowDown"></li>
+<i class="i_account_circle_w"></i>
+<i class="i_add_w"></i>
+<i class="i_arrow_back_w"></i>
+<i class="i_arrow_down_w"></i>
+<i class="i_arrow_forward_w"></i>
+<i class="i_arrow_left_w"></i>
+<i class="i_arrow_right_w"></i>
+<i class="i_arrow_up_w"></i>
+<i class="i_arrows_output_w"></i>
+<i class="i_attach_file_w"></i>
 <!-- B -->
-<li class="i_bookmark"></li>
+<i class="i_back_w"></i>
+<i class="i_block_w"></i>
+<i class="i_book_w"></i>
+<i class="i_browse_w"></i>
 <!-- C -->
-<li class="i_calendar"></li>
-<li class="i_chat"></li>
-<li class="i_check"></li>
-<li class="i_clock"></li>
-<li class="i_close"></li>
-<li class="i_copy"></li>
+<i class="i_calendar_1_w"></i>
+<i class="i_calendar_2_w"></i>
+<i class="i_call_made_w"></i>
+<i class="i_call_received_w"></i>
+<i class="i_cancel_w"></i>
+<i class="i_check_circle_w"></i>
+<i class="i_check_w"></i>
+<i class="i_clock_w"></i>
+<i class="i_close_w"></i>
+<i class="i_cloud_download_w"></i>
+<i class="i_cloud_upload_w"></i>
+<i class="i_contrast_w"></i>
 <!-- D -->
-<li class="i_dot"></li>
+<i class="i_database_w"></i>
+<i class="i_delete_w"></i>
+<i class="i_description_w"></i>
+<i class="i_desktop_landscape_w"></i>
+<i class="i_developer_guide_w"></i>
+<i class="i_distance_w"></i>
+<i class="i_download_w"></i>
 <!-- E -->
-<li class="i_edit"></li>
+<i class="i_edit_w"></i>
+<i class="i_error_w"></i>
+<i class="i_expand_all_w"></i>
 <!-- F -->
-<li class="i_facebook"></li>
+<i class="i_favorite_w"></i>
+<i class="i_first_page_w"></i>
+<i class="i_folder_w"></i>
+<i class="i_format_size_w"></i>
 <!-- G -->
-<li class="i_global"></li>
-<li class="i_googleplus"></li>
-<li class="i_grid"></li>
 <!-- H -->
-<li class="i_heart"></li>
-<li class="i_home"></li>
+<i class="i_help_w"></i>
+<i class="i_home_w"></i>
 <!-- I -->
-<li class="i_info"></li>
+<i class="i_image_w"></i>
+<i class="i_info_w"></i>
 <!-- J -->
 <!-- K -->
+<i class="i_key_vertical_w"></i>
 <!-- L -->
-<li class="i_layout"></li>
-<li class="i_link"></li>
-<li class="i_linkedin"></li>
-<li class="i_lock"></li>
+<i class="i_language_w"></i>
+<i class="i_last_page_w"></i>
+<i class="i_leaderboard_w"></i>
+<i class="i_list_w"></i>
+<i class="i_lock_w"></i>
+<i class="i_logout_w"></i>
 <!-- M -->
-<li class="i_mail"></li>
-<li class="i_man"></li>
-<li class="i_minus"></li>
-<li class="i_move"></li>
+<i class="i_mail_w"></i>
+<i class="i_menu_w"></i>
+<i class="i_more_vert_w"></i>
 <!-- N -->
+<i class="i_new_releases_w"></i>
+<i class="i_notifications_w"></i>
 <!-- O -->
-<li class="i_order"></li>
+<i class="i_open_in_new_w"></i>
 <!-- P -->
-<li class="i_photo"></li>
-<li class="i_pick"></li>
-<li class="i_play"></li>
+<i class="i_palette_w"></i>
+<i class="i_pause_w"></i>
+<i class="i_person_w"></i>
+<i class="i_play_arrow_w"></i>
+<i class="i_print_w"></i>
 <!-- Q -->
 <!-- R -->
-<li class="i_reflash"></li>
-<li class="i_rss"></li>
+<i class="i_refresh_w"></i>
+<i class="i_remove_w"></i>
 <!-- S -->
-<li class="i_search"></li>
-<li class="i_setting"></li>
-<li class="i_sort"></li>
-<li class="i_star"></li>
+<i class="i_search_w"></i>
+<i class="i_select_arrow_w"></i>
+<i class="i_settings_w"></i>
+<i class="i_share_w"></i>
+<i class="i_slash_w"></i>
+<i class="i_star_w"></i>
+<i class="i_swap_vert_w"></i>
+<i class="i_sync_w"></i>
 <!-- T -->
-<li class="i_top"></li>
-<li class="i_trash"></li>
-<li class="i_twitter"></li>
+<i class="i_tag_w"></i>
+<i class="i_tooltip_w"></i>
 <!-- U -->
+<i class="i_upload_w"></i>
 <!-- V -->
-<li class="i_video"></li>
-<li class="i_view"></li>
-<li class="i_vimeo"></li>
+<i class="i_visibility_w"></i>
+<i class="i_visibility_off_w"></i>
+<i class="i_voice_w"></i>
 <!-- W -->
+<i class="i_warning_w"></i>
 <!-- X -->
 <!-- Y -->
-<li class="i_youtube"></li>
 <!-- Z -->
 ```
 
 <!-- tabs:end -->
 
 <style>
-.icon_demo {
+.iconDemo {
   width: 1000px;
 }
-.icon_demo ul{
-    display:flex;
-    flex-wrap: wrap;
-    padding-left: 0;
+.iconDemo.w{
+  background:none !important;
 }
- .icon_demo li {
-      background: #f1f1f1;
-      padding: 0.5em;
-      font-size: 1.5em;
-      box-sizing: border-box;
-      display: block;
-      outline: 1px solid white;
-      line-height: 1em;
-      position: relative;
-      [tooltip]::after {
-        font-size: 16px;
-        max-width: 10em;
-        text-align: center;
-      }
-    }
-  .icon_demo li> div {
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-   .icon_demo_light li{
-     background: #888;
-   }   
+.iconDemo.w tr{
+  background:#000 !important;
+}
+.iconDemo.w td{
+  border: 1px solid #ccc !important;
+}
 </style>

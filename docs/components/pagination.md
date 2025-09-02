@@ -2,6 +2,10 @@
 
 ?>相關 css：scss/components/`_pagination.scss`
 
+提供兩種方式
+
+第一種
+
 <div class="pagination">
   <form action="">
     <div class="formInline">
@@ -30,6 +34,28 @@
   </ul>
 </div>
 
+第二種
+
+<div class="pagination">
+                <div class="formInline">
+                  共<span>308</span>筆資料，第<span>1/18</span>頁，每頁顯示 <button type="button" class="count active">10</button>
+                  <button type="button" class="count">20</button>
+                  <button type="button" class="count">30</button>筆
+                </div>
+                <ul class="page">
+                  <li class="firstArrow"><a href="#" title="第一頁">第一頁 </a></li>
+                  <li class="prevArrow"><a href="#" title="回上一頁">回上一頁 </a></li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li class="nextArrow"><a href="#" title="下一頁">下一頁 </a></li>
+                  <li class="lastArrow">
+                    <a href="#" title="最後一頁">最後一頁 </a>
+                  </li>
+                </ul>
+              </div>
 <!-- tabs:start -->
 
 #### **HTML**

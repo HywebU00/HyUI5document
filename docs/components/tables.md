@@ -306,3 +306,70 @@ td:has(img){
   text-align:center;
 }
 </style>
+<script>
+function scrollTables() {
+  const el = document.querySelectorAll('.tableScroll');
+  if (el.length === 0) return;
+
+  el.forEach((elem) => {
+    const table = elem.querySelector('table');
+    const caption = elem.querySelector('caption');
+    const prevBtn = elem.querySelector('.scrollTablePrevBtn');
+    const nextBtn = elem.querySelector('.scrollTableNextBtn');
+    if (!prevBtn || !nextBtn) {
+      console.error('表格捲動功能: prevBtn 或 nextBtn 無法抓到，請檢查Html結構');
+      return;
+    }
+
+    if (caption) {
+      let captionMargin = parseInt(window.getComputedStyle(caption).marginBottom.replace('px', '')) || 0;
+
+      prevBtn.style.top = `${caption.offsetHeight + captionMargin}px`;
+      nextBtn.style.top = `${caption.offsetHeight + captionMargin}px`;
+    }
+    const tableScrollIn = document.createElement('div');
+    tableScrollIn.className = 'tableScrollIn';
+    tableScrollIn.insertAdjacentElement('afterbegin', table);
+    elem.insertAdjacentElement('beforeend', tableScrollIn);
+
+    let tableScrollLeft = tableScrollIn.scrollLeft;
+    let tableClientWidth = tableScrollIn.clientWidth;
+    let tableScrollWidth = tableScrollIn.scrollWidth;
+
+    tableScrollIn.addEventListener('scroll', () => {
+      _checkScroll(tableScrollLeft, tableClientWidth, tableScrollWidth);
+    });
+
+    function _checkScroll(tableScrollLeft, tableClientWidth, tableScrollWidth) {
+      tableScrollLeft = tableScrollIn.scrollLeft;
+      tableClientWidth = tableScrollIn.clientWidth;
+      tableScrollWidth = table.scrollWidth;
+
+      if (tableScrollLeft >= 0 && tableScrollLeft + tableClientWidth < tableScrollWidth) {
+        nextBtn.style.display = 'block';
+      } else {
+        nextBtn.style.display = 'none';
+      }
+      if (tableScrollLeft > 0) {
+        prevBtn.style.display = 'block';
+      } else {
+        prevBtn.style.display = 'none';
+      }
+    }
+
+    _checkScroll(tableScrollLeft, tableClientWidth, tableScrollWidth);
+    window.addEventListener('resize', () => _checkScroll(tableScrollLeft, tableClientWidth, tableScrollWidth));
+
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      tableScrollIn.scrollBy({ left: -100, behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      tableScrollIn.scrollBy({ left: 100, behavior: 'smooth' });
+    });
+  });
+}
+window.addEventListener('load', () => scrollTables());
+</script>
+<link rel="stylesheet" href="https://hywebu00.github.io/HyUI_5/css/style.css" />
