@@ -2,7 +2,7 @@
 
 ?>相關 css：scss/components/`_popup_.scss`
 
-使用`fancybox`模組，請確認是否有購買相關使用證明。
+使用`fancybox`模組，使用需要`依照案件需求`購買不同的`使用憑證`，請先與企劃和前端人員確認。
 
 ## Html
 
@@ -21,11 +21,10 @@
 
 預設提供兩種 popup 大小用的`class`
 
-- 彈出對話框(大)：`.popupB`
-- 彈出對話框(小)：`.popupS`
+- 彈出對話框(大)：`popupB`
+- 彈出對話框(小)：`popupS`
 
-`class` 需與`id`設在同一個 div 上。  
-若需要一進入就開燈箱時，在燈箱內容上增加`.showPopup`即可。
+若需要一進入就開燈箱時，在燈箱內容上增加`showPopup`的 class 即可。
 
 !>一進入就開燈箱就算沒有按鈕，還是需要輸入 id。
 
@@ -259,3 +258,68 @@ data-caption="圖片說明">
     display:none !important;
   }
 </style>
+
+<script>
+  function popupFn() {
+  const fancyBoxElem = document.querySelectorAll('[data-fancybox]');
+  if (fancyBoxElem.length === 0) return;
+  // 確認引入語系
+  let checkLang = document.querySelectorAll('script');
+
+  let lang;
+  checkLang.forEach((elem) => {
+    const path = elem.attributes.src?.value;
+    if (path === undefined) return;
+    const match = path?.match(/fancybox\/l10n/);
+    const fancyboxPath = match ? match[0] : null;
+    if (!fancyboxPath) return;
+    const fileName = path?.split('/').pop();
+    const locale = fileName?.split('.')[0];
+    lang = locale;
+  });
+
+  // 一般設定
+  Fancybox.bind('[data-fancybox]', {
+    l10n: Fancybox.l10n[lang],
+    on: {
+      '*': (fancyboxRef, eventName) => {
+        // 關閉按鈕無障礙問題
+        if (eventName === 'done') {
+          let closeBtn = fancyboxRef.container?.querySelector('[data-fancybox-close]');
+          closeBtn?.insertAdjacentHTML('afterbegin', `<span>${fancyboxRef.options.l10n.CLOSE}</span>`);
+          closeBtn.setAttribute('aria-label', fancyboxRef.options.l10n.CLOSE);
+          closeBtn.focus();
+        }
+      },
+    },
+  });
+
+  // 進入網頁開啟燈箱
+  let showPopup = document.querySelector('.showPopup');
+  if (showPopup) {
+    Fancybox.show(
+      [
+        {
+          src: `#${showPopup.getAttribute('id')}`,
+          type: 'inline',
+        },
+      ],
+      {
+        l10n: Fancybox.l10n[lang],
+        on: {
+          '*': (fancyboxRef, eventName) => {
+            // 關閉按鈕無障礙問題
+            if (eventName === 'done') {
+              let closeBtn = fancyboxRef.container?.querySelector('[data-fancybox-close]');
+              closeBtn?.insertAdjacentHTML('afterbegin', `<span>${fancyboxRef.options.l10n.CLOSE}</span>`);
+              closeBtn.setAttribute('aria-label', fancyboxRef.options.l10n.CLOSE);
+              closeBtn.focus();
+            }
+          },
+        },
+      }
+    );
+  }
+}
+window.addEventListener('load', () => popupFn());
+</script>

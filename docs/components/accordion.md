@@ -2,7 +2,7 @@
 
 ?>相關 css：scss/components/`_accordion.scss`
 
-點擊 `accordionBtn`，來顯示及隱藏另一個元素，點擊後 `accordionList`增加`.active` 可自由設定 css 樣式。
+點擊 `accordionBtn`，來顯示及隱藏另一個元素，點擊後 `accordionList`增加`active` 可自由設定 css 樣式。
 
 說明文字(展開/收合)從`accordion`中抓取，方便多語系修改。
 
@@ -132,7 +132,191 @@ accordionFunction({
     left:auto !important;
   }
 </style>
+
 <script>
+function _jsSlideDown(element, time = 200) {
+  let ele = window.getComputedStyle(element);
+  let display = ele.display;
+  let speed = time;
+  element.style.display = display;
+  if (display === 'none') {
+    element.style.display = 'block';
+    element.style.overflow = 'hidden';
+    let totalHeight = element.offsetHeight;
+    element.style.height = '0px';
+    element.style.transitionProperty = 'height';
+    element.style.transitionDuration = `${speed}ms`;
+    setTimeout(() => {
+      element.style.height = `${totalHeight}px`;
+    }, 0);
+    setTimeout(() => {
+      element.style.removeProperty('height');
+      element.style.removeProperty('overflow');
+      element.style.removeProperty('transition-duration');
+      element.style.removeProperty('transition-property');
+    }, speed);
+  }
+}
+function _jsSlideToggle(element, time = 200) {
+  let ele = window.getComputedStyle(element);
+
+  let display = ele.display;
+  let speed = time;
+  element.style.display = display;
+  if (display === 'none') {
+    element.style.display = 'block';
+    let totalHeight = element.offsetHeight;
+    element.style.overflow = 'hidden';
+    element.style.height = '0px';
+    element.style.transitionProperty = 'height';
+    element.style.transitionDuration = `${speed}ms`;
+    setTimeout(() => {
+      element.style.height = `${totalHeight}px`;
+    }, 0);
+    setTimeout(() => {
+      element.style.removeProperty('height');
+      element.style.removeProperty('overflow');
+      element.style.removeProperty('transition-duration');
+      element.style.removeProperty('transition-property');
+    }, speed);
+  } else {
+    let totalHeight2 = element.offsetHeight;
+    element.style.overflow = 'hidden';
+    element.style.height = `${totalHeight2}px`;
+    element.style.transitionProperty = 'height';
+    element.style.transitionDuration = `${speed}ms`;
+    setTimeout(() => {
+      element.style.height = `0px`;
+    }, 0);
+    setTimeout(() => {
+      element.style.display = 'none';
+      element.style.removeProperty('height');
+      element.style.removeProperty('overflow');
+      element.style.removeProperty('transition-duration');
+      element.style.removeProperty('transition-property');
+    }, speed);
+  }
+}
+// 亂數數字
+function _randomNumber(max) {
+  let letter = '1234567890';
+  let number = '';
+
+  for (let i = 0; i < max; i++) number += letter.charAt(Math.floor(Math.random() * letter.length));
+  return number;
+}
+
+// 亂數英文字
+function _randomLetter(max) {
+  let letter = 'abcdefghijklmnopqrstuvwxyz';
+  let text = '';
+
+  for (let i = 0; i < max; i++) text += letter.charAt(Math.floor(Math.random() * letter.length));
+  return text;
+}
+function accordionFunction(obj) {
+  const { target, openContent = false, openDefault = false, autoClose = true, openSwitch = true } = obj;
+
+  const accordionSet = document.querySelector(target);
+  if (!accordionSet) return;
+  // console.warn('手風琴功能: accordionSet 無法抓到(請檢查Html結構)，或是沒有使用到此功能');
+  // return;
+
+  const infoOpen = accordionSet.dataset.stateOpen;
+  const infoClose = accordionSet.dataset.stateClose;
+  const accordionList = accordionSet.querySelectorAll('.accordionList');
+  const accordionBtns = accordionSet.querySelectorAll('.accordionBtn');
+  const accordionCons = accordionSet.querySelectorAll('.accordionContent');
+  const defaultIndex = [...accordionList].indexOf(accordionSet.querySelector('.active')) === -1 ? 0 : [...accordionList].indexOf(accordionSet.querySelector('.active'));
+
+  //初始設定
+  function _accordionInit() {
+    accordionBtns.forEach((accordion, i) => {
+      const id = `accordion_${_randomLetter(3)}${_randomNumber(3)}`;
+      const controls = `${id}_con`;
+
+      // 增加展開說明文字
+      let accordionStateOuter;
+      let accordionState;
+      if (openSwitch) {
+        let accordionStateOuter = document.createElement('div');
+        accordionState = document.createElement('span');
+        accordionStateOuter.classList.add('accordionState');
+        accordionState.insertAdjacentHTML('afterbegin', infoOpen);
+        accordionStateOuter.insertAdjacentElement('beforeend', accordionState);
+        accordion.insertAdjacentElement('beforeend', accordionStateOuter);
+      }
+
+      //button
+      accordion.setAttribute('id', id);
+      accordion.setAttribute('aria-controls', controls);
+      accordion.setAttribute('aria-expanded', 'false');
+
+      //content
+      accordionCons[i].setAttribute('id', controls);
+      accordionCons[i].setAttribute('aria-labelledby', id);
+      accordionCons[i].setAttribute('role', 'region');
+
+      if (openContent) {
+        // 預設先展開所有內容
+        accordion.classList.add('active');
+        accordion.setAttribute('aria-expanded', 'true');
+        if (openSwitch) accordionState.textContent = infoClose;
+      } else if (!openContent) {
+        accordion.setAttribute('aria-expanded', 'false');
+        accordionCons[i].style.display = 'none';
+      }
+    });
+
+    if (openDefault) {
+      accordionBtns[defaultIndex].parentElement.classList.add('active');
+      accordionBtns[defaultIndex].setAttribute('aria-expanded', 'true');
+      _jsSlideDown(accordionCons[defaultIndex]);
+      if (openSwitch) accordionBtns[defaultIndex].querySelector('.accordionState span').textContent = infoClose;
+    }
+  }
+  _accordionInit();
+
+  function _accordionFn(btn, i) {
+    const accordionState = btn.querySelector('.accordionState span');
+    _jsSlideToggle(accordionCons[i]);
+    accordionSet.dataset.nowIndex = i;
+    let infoText = accordionState.textContent === infoClose ? infoOpen : infoClose;
+    let expanded = btn.getAttribute('aria-expanded') === 'true' ? false : true;
+    accordionState.textContent = infoText;
+    btn.setAttribute('aria-expanded', expanded);
+    btn.parentElement.classList.toggle('active');
+
+    if (!autoClose) return;
+    const siblingsMobileAccordionBtns = [...accordionBtns].filter((value) => value !== accordionBtns[i]);
+    siblingsMobileAccordionBtns.forEach((value) => {
+      value.parentElement.classList.remove('active');
+      value.querySelector('.accordionState span').textContent = infoOpen;
+    });
+    const siblingsAccordionCons = [...accordionCons].filter((value) => value !== accordionCons[i]);
+    siblingsAccordionCons.forEach((value) => _jsSlideUp(value));
+    setTimeout(() => {
+      let btnClientRect = btn.getBoundingClientRect();
+      if (btnClientRect.y < 0) {
+        window.scrollTo({
+          top: window.scrollY + btnClientRect.y - btnClientRect.height - 20,
+          behavior: 'smooth',
+        });
+      }
+    }, 200);
+  }
+
+  // 是否可開合/切換
+  if (openSwitch) {
+    accordionBtns.forEach((btn, i) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        _accordionFn(btn, i);
+      });
+    });
+  }
+}
+
 accordionFunction({
   target: '.accordion',
   openContent: false, // 預設先展開所有內容

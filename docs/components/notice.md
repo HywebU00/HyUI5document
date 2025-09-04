@@ -1,7 +1,7 @@
 # formNotice / 提示訊息
 
-?>相關 css：scss/components/`formNotice.scss`
-
+?>相關 css：scss/components/`_form_.scss`
+在無障礙的需求中，若是有在填寫表單會出發相關訊息的時候，再通知區塊時需要常駐一個元件並設定`role="alert"`，後續觸發的訊息都需要加入到該元件中。
 通常用於表單輸入狀態之提示，可自由替換提示訊息之文本。
 
 <section class="demo">
@@ -51,11 +51,3 @@
     margin:4em 0;
   }
 </style>
-<script>
-  document.querySelectorAll('[class*="formNotice"] a.close').forEach((i) => {
-  i.addEventListener('click', (e) => {
-    i.parentNode.style.display = 'none';
-    e.preventDefault();
-  });
-});
-</script>

@@ -47,7 +47,7 @@
 <form class="formBox">
   <fieldset class="formList" aria-labelledby="abc">
     <legend class="formListTitle" id="abc">區塊標題</legend>
-    <div class="formContent"></div>
+    <div class="formContent">...</div>
   </fieldset>
 </form>
 
@@ -80,8 +80,8 @@
   <div class="formContent inline noFull">
     <label for="formItem1" class="srOnly">輸入文字：</label>
     <input type="text" name="" id="formItem1" placeholder="請輸入文字" />
+    <label for="formItem1Select" class="srOnly">選擇項目：</label>
     <div class="select">
-      <label for="formItem1Select" class="srOnly">選擇項目：</label>
       <select name="" id="formItem1Select">
         <option value="">請選擇</option>
         <option value="option">option</option>
@@ -102,8 +102,8 @@
   <div class="formContent inline noFull">
     <label for="formItem1" class="srOnly">輸入文字：</label>
     <input type="text" name="" id="formItem1" placeholder="請輸入文字" />
+    <label for="formItem1Select" class="srOnly">選擇項目：</label>
     <div class="select">
-      <label for="formItem1Select" class="srOnly">選擇項目：</label>
       <select name="" id="formItem1Select">
         <option value="">請選擇</option>
         <option value="option">option</option>
@@ -169,11 +169,27 @@
 
 <!-- tabs:end -->
 
+`inline`/`noFull`不只可以加在`formList`中，`formContent`也是可以加的，端看排版需求處理即可。
+
+### srOnly
+
+因為無障礙要求每個欄位都必須要對應的`label`，若不希望看到可以加上`srOnly`，這個 class 可以在任何地方使用，增加後就會隱藏該元件。
+
+<!-- tabs:start -->
+
+#### **HTML**
+
+```html
+<label for="" class="srOnly">選擇項目：</label>
+```
+
+<!-- tabs:end -->
+
 ## 狀態
 
 ### 必填
 
-`formList` 加上 `.required`  
+`formList` 加上 `required`  
 `input`/`select`/`textarea`也要加上`required`
 
 **範例**
@@ -201,7 +217,7 @@
 
 ### 錯誤狀態
 
-`formList` 加上 `.error`。
+`formList` 加上 `error`。
 
 **範例**
 
@@ -270,7 +286,7 @@
 
 ### Checked
 
-只有在`input[type="radio"]`、`input[type="checkBox"]`加上 `checked`。
+只有在`input[type="radio"]`、`input[type="checkBox"]`才會有`checked`效果。
 
 **範例**
 
@@ -405,36 +421,42 @@
 
 ### 密碼
 
+在無障礙的需求中，若是有在填寫表單會出發相關訊息的時候，再通知區塊時需要常駐一個元件並設定`role="alert"`，後續觸發的訊息都需要加入到該元件中。
+
+```html
+<div role="alert" id="alert1"></div>
+```
+
 **範例**
 
 <form class="formBox">
-  <div class="formList">
-    <label class="formListTitle" for="targetId4">密碼</label>
-    <div class="formContent">
-      <div class="inputBox">
-        <i class="i_lock_dk"></i>
-        <input class="password" type="password" name="" id="targetId4" autocomplete="current-password" placeholder="請輸入密碼" />
-        <button type="button" class="formEyes" data-show="顯示密碼" data-hide="隱藏密碼" aria-label="顯示密碼" aria-pressed="false"></button>
+<div class="formList inline">
+  <label class="formListTitle" for="targetId4">密碼</label>
+  <div class="formContent">
+    <div class="inputBox">
+      <i class="i_lock_dk"></i>
+      <input class="password" type="password" name="" id="targetId4" autocomplete="current-password" placeholder="請輸入密碼" />
+      <button class="formEyes" type="button" data-show="顯示密碼" data-hide="隱藏密碼"></button>
+    </div>
+<div role="alert" id="alert1">
+      <div class="formNotice">
+        <span>這是一般提醒訊息區塊</span>
       </div>
-      <div role="alert" id="alert1">
-                          <div class="formNotice">
-                            <span>這是一般提醒訊息區塊</span>
-                          </div>
-                          <div class="formNoticeInfo">
-                            <span>這是一般提醒訊息區塊</span>
-                          </div>
-                          <div class="formNoticeSuccess">
-                            <span>您已成功登入</span>
-                          </div>
-                          <div class="formNoticeWarning">
-                            <span>這似乎不是一個正常的Email格式</span>
-                          </div>
-                          <div class="formNoticeError">
-                            <span>您輸入的帳號密碼有誤！</span>
-                          </div>
-                        </div>
+      <div class="formNoticeInfo">
+        <span>這是一般提醒訊息區塊</span>
+      </div>
+      <div class="formNoticeSuccess">
+        <span>您已成功登入</span>
+      </div>
+      <div class="formNoticeWarning">
+        <span>這似乎不是一個正常的Email格式</span>
+      </div>
+      <div class="formNoticeError">
+        <span>您輸入的帳號密碼有誤！</span>
+      </div>
     </div>
   </div>
+</div>
 </form>
 
 <!-- tabs:start -->
@@ -450,25 +472,23 @@
       <input class="password" type="password" name="" id="targetId4" autocomplete="current-password" placeholder="請輸入密碼" />
       <button class="formEyes" type="button" data-show="顯示密碼" data-hide="隱藏密碼"></button>
     </div>
-    <div class="formNotice">
-      <span>這是一般提醒訊息區塊</span>
-      <button type="button" class="noticeClose" aria-label="關閉提醒"></button>
-    </div>
-    <div class="formNoticeInfo">
-      <span>這是一般提醒訊息區塊</span>
-      <button type="button" class="noticeClose" aria-label="關閉提醒"></button>
-    </div>
-    <div class="formNoticeSuccess">
-      <span>您已成功登入</span>
-      <button type="button" class="noticeClose" aria-label="關閉提醒"></button>
-    </div>
-    <div class="formNoticeWarning">
-      <span>這似乎不是一個正常的Email格式</span>
-      <button type="button" class="noticeClose" aria-label="關閉提醒"></button>
-    </div>
-    <div class="formNoticeError">
-      <span>您輸入的帳號密碼有誤！</span>
-      <button type="button" class="noticeClose" aria-label="關閉提醒"></button>
+
+    <div role="alert" id="alert1">
+      <div class="formNotice">
+        <span>這是一般提醒訊息區塊</span>
+      </div>
+      <div class="formNoticeInfo">
+        <span>這是一般提醒訊息區塊</span>
+      </div>
+      <div class="formNoticeSuccess">
+        <span>您已成功登入</span>
+      </div>
+      <div class="formNoticeWarning">
+        <span>這似乎不是一個正常的Email格式</span>
+      </div>
+      <div class="formNoticeError">
+        <span>您輸入的帳號密碼有誤！</span>
+      </div>
     </div>
   </div>
 </div>
@@ -578,7 +598,7 @@
 
 ### 下拉選單
 
-下拉選單需要`.select`包起。
+下拉選單需要使用 class`select`。
 
 **範例**
 
@@ -620,7 +640,7 @@
 
 ### 下拉選單 - 群組
 
-下拉選單需要`.select`包起。
+下拉選單需要使用 class`select`。
 
 **範例**
 
@@ -987,18 +1007,6 @@
   <fieldset class="formList inline">
     <legend class="formListTitle">聯絡方式</legend>
     <div class="formContent">
-      <div class="formList inline">
-        <label class="formListTitle" for="formItem8Select">國家區域</label>
-        <div class="formContent">
-        <div class="select">
-          <select name="" id="formItem8Select">
-            <option value="">請選擇</option>
-            <option value="option">option</option>
-            <option value="option">option</option>
-          </select>
-      </div>
-        </div>
-      </div>
       <fieldset class="formList inline" aria-labelledby="fieldset12">
         <legend class="formListTitle" id="fieldset12">電話號碼</legend>
         <div class="formContent">
@@ -1099,18 +1107,6 @@
   <fieldset class="formList inline">
     <legend class="formListTitle">聯絡方式</legend>
     <div class="formContent">
-      <div class="formList inline">
-        <label class="formListTitle" for="formItem8Select">國家區域</label>
-        <div class="formContent">
-          <div class="select">
-            <select name="" id="formItem8Select">
-              <option value="">請選擇</option>
-              <option value="option">option</option>
-              <option value="option">option</option>
-            </select>
-          </div>
-        </div>
-      </div>
       <fieldset class="formList inline" aria-labelledby="fieldset12">
         <legend class="formListTitle" id="fieldset12">電話號碼</legend>
         <div class="formContent">
@@ -1176,3 +1172,30 @@
 ```
 
 <!-- tabs:end -->
+<script>
+  function formEye() {
+  const checkEye = document.querySelector('.formEyes');
+  if (!checkEye) return;
+  const password = checkEye.parentNode.querySelector('input');
+  const showPassword = checkEye.dataset.show;
+  const hidePassword = checkEye.dataset.hide;
+  checkEye.setAttribute('aria-label', showPassword);
+  checkEye.setAttribute('aria-pressed', 'false');
+
+  checkEye.addEventListener('click', (e) => {
+    if (checkEye.getAttribute('aria-pressed') === 'false') {
+      checkEye.classList.add('active');
+      password.setAttribute('type', 'text');
+      checkEye.setAttribute('aria-pressed', 'true');
+      checkEye.setAttribute('aria-label', hidePassword);
+    } else {
+      checkEye.classList.remove('active');
+      password.setAttribute('type', 'password');
+      checkEye.setAttribute('aria-pressed', 'false');
+      checkEye.setAttribute('aria-label', showPassword);
+    }
+  });
+}
+// formEye();
+window.addEventListener('load', () => formEye());
+</script>

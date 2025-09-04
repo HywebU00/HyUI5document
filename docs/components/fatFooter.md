@@ -157,3 +157,82 @@
 ```
 
 <!-- tabs:end -->
+
+<style>
+  .fatFooter nav{
+    width:100%;
+  }
+  .fatFooter nav > ul{
+    width:100%;
+  }
+</style>
+<script>
+  function fatFooter() {
+  const fatFooterBtn = document.querySelector('#fatFooterBtn');
+
+  if (!fatFooterBtn) return;
+
+  const fatFooterCon = document.querySelectorAll('.fatFooter nav > ul > li > ul');
+
+  let idArray = [];
+  fatFooterCon.forEach((item, i) => {
+    idArray.push(`fatFooter${i}`);
+    item.setAttribute('id', `fatFooter${i}_con`);
+    item.setAttribute('aria-labelledby', `fatFooterBtn`);
+  });
+
+  fatFooterBtn.setAttribute('aria-controls', idArray.join(' '));
+  fatFooterBtn.setAttribute('aria-expanded', 'true');
+
+  fatFooterBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    fatFooterCon.forEach((i) => _toggleFatFooter(i, 400));
+  });
+
+  function _toggleFatFooter(element, time = 200) {
+    let ele = window.getComputedStyle(element);
+
+    let display = ele.display;
+    let speed = time;
+    element.style.display = display;
+    if (display === 'none') {
+      element.style.display = 'flex';
+      let totalHeight = element.offsetHeight;
+      element.style.overflow = 'hidden';
+      element.style.height = '0px';
+      element.style.transitionProperty = 'height';
+      element.style.transitionDuration = `${speed}ms`;
+      setTimeout(() => {
+        element.style.height = `${totalHeight}px`;
+      }, 0);
+      setTimeout(() => {
+        element.style.removeProperty('height');
+        element.style.removeProperty('overflow');
+        element.style.removeProperty('transition-duration');
+        element.style.removeProperty('transition-property');
+      }, speed);
+      fatFooterBtn.setAttribute('aria-expanded', 'true');
+      fatFooterBtn.classList.remove('active');
+    } else {
+      let totalHeight2 = element.offsetHeight;
+      element.style.overflow = 'hidden';
+      element.style.height = `${totalHeight2}px`;
+      element.style.transitionProperty = 'height';
+      element.style.transitionDuration = `${speed}ms`;
+      setTimeout(() => {
+        element.style.height = `0px`;
+      }, 0);
+      setTimeout(() => {
+        element.style.display = 'none';
+        element.style.removeProperty('height');
+        element.style.removeProperty('overflow');
+        element.style.removeProperty('transition-duration');
+        element.style.removeProperty('transition-property');
+      }, speed);
+      fatFooterBtn.setAttribute('aria-expanded', 'false');
+      fatFooterBtn.classList.add('active');
+    }
+  }
+}
+window.addEventListener('load', () => fatFooter());
+</script>

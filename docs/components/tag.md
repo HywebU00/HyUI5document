@@ -36,11 +36,10 @@
 #### **HTML**
 
 ```html
-<!-- tag Start -->
 <div class="tagBox">
   <ul>
     <li>
-      <a href="#" class="active">全部 <sub>(2)</sub></a>
+      <a href="#" class="active"><i class="i_tag_dk"></i>全部 <sub>(2)</sub></a>
     </li>
     <li>
       <a href="#"><i class="i_tag_dk"></i>標籤一</a>
@@ -62,7 +61,6 @@
     </li>
   </ul>
 </div>
-<!-- tag End -->
 ```
 
 <!-- tabs:end -->

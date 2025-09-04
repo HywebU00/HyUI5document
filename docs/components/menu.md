@@ -272,10 +272,3 @@ mainMenu({
     position:relative !important;
   }
 </style>
-<script>
-// mainMenu({
-//   sticky: false, // 是否置頂
-//   mega: false, // 是否megaMenu
-//   needLink: false, // 如果同時需要連結和下層功能時(手機版選單)
-// });
-</script>

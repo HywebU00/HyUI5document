@@ -525,6 +525,92 @@ swiperNavKeyDownFn(sliderFor.thumbs.swiper, sliderFor);
 }
 </style>
 <script>
+function swiperA11Fn(swiper) {
+  // 圓點
+  let noActive = 0;
+  swiper.slides.filter((elem, i) => {
+    if (elem.classList.contains('swiper-slide-thumb-active')) {
+      noActive = i;
+    }
+  });
+  const swiperSlide = swiper.el.querySelectorAll('.item');
+  swiperSlide.forEach((elem, idx) => {
+    elem.setAttribute('role', 'button');
+    elem.setAttribute('tabindex', '0');
+    if (idx === noActive) {
+      elem.setAttribute('aria-pressed', 'true');
+    } else {
+      elem.setAttribute('aria-pressed', 'false');
+    }
+    elem.addEventListener('click', (e) => {
+      elem.setAttribute('aria-pressed', 'true');
+      let sibling = [...swiperSlide].filter((item) => item !== elem);
+      sibling.forEach((j) => j.setAttribute('aria-pressed', 'false'));
+    });
+  });
+  // swiperAutoPlay切換功能
+  const autoPlaySwitch = swiper.el.parentNode.parentNode.querySelector('.autoPlaySwitch');
+  if (!autoPlaySwitch) return;
+  let nowState = swiper.autoplay.running ? true : false;
+  let infoPlay = autoPlaySwitch.dataset.infoPlay;
+  let infoStop = autoPlaySwitch.dataset.infoStop;
+  nowState ? autoPlaySwitch.classList.add('stop') : autoPlaySwitch.classList.add('play');
+  autoPlaySwitch.setAttribute('aria-label', infoStop);
+  autoPlaySwitch.setAttribute('data-altlabel', infoPlay);
+  autoPlaySwitch.addEventListener('click', (e) => {
+    if (nowState) {
+      nowState = false;
+      swiper.autoplay.stop();
+      autoPlaySwitch.classList.add('play');
+      autoPlaySwitch.classList.remove('stop');
+      autoPlaySwitch.setAttribute('aria-label', infoPlay);
+      autoPlaySwitch.setAttribute('data-altlabel', infoStop);
+    } else {
+      nowState = true;
+      swiper.autoplay.start();
+      autoPlaySwitch.classList.add('stop');
+      autoPlaySwitch.classList.remove('play');
+      autoPlaySwitch.setAttribute('aria-label', infoStop);
+      autoPlaySwitch.setAttribute('data-altlabel', infoPlay);
+    }
+  });
+  swiper.slides.length === 1 ? autoPlaySwitch.remove() : null;
+}
+function swiperNavKeyDownFn(swiper, mainSwiper) {
+  const body = document.querySelector('body');
+  if (!swiper) return;
+  swiper.slides.forEach((elem, idx) => {
+    elem.dataset.swiperSlideIndex = idx;
+  });
+  body.addEventListener('keydown', (e) => {
+    if (e.code === 'Enter' && e.target.parentNode.dataset.swiperSlideIndex !== undefined) {
+      let index = e.target.parentNode.dataset.swiperSlideIndex;
+      let swiperSlide = e.target.parentNode.parentNode.querySelectorAll('.item');
+      mainSwiper.slideTo(index, 1000, false);
+      e.target.setAttribute('aria-pressed', 'true');
+      let sibling = [...swiperSlide].filter((item) => item !== e.target);
+      sibling.forEach((j) => j.setAttribute('aria-pressed', 'false'));
+    }
+  });
+}
+  const marqueeSlider = new Swiper('.marqueeSlider .swiper', {
+    direction: 'vertical',
+    // 切換點
+    // 切換箭頭
+    navigation: {
+      nextEl: '.marqueeSlider .swiperNext', //自行設定樣式
+      prevEl: '.marqueeSlider .swiperPrev', //自行設定樣式
+      disabledClass: 'swiperArrow-disabled', //不可點選樣式
+    },
+    autoplay: {
+      delay: 5000,
+    },
+    on: {
+      init: function (swiper) {
+        swiperA11Fn(swiper);
+      },
+    },
+  });
 // ----- MP 輪播 ---------------------------------------------------
 const mpSlider = new Swiper('.mpSlider .swiper', {
 // 切換點

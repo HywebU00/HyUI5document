@@ -3,7 +3,7 @@
 ?>相關 css：scss/template/`_main_.scss`
 
 首頁跟內容頁的 class 會有些許不同。  
- 若 class 裡有 full 代表滿版，會清除`.container`的`max-width`和`padding`
+ 若 class 裡有 full 代表滿版，會清除`container`的`max-width`和`padding`
 
 **內含預設模組可參考**
 
@@ -55,7 +55,7 @@
 
 **有側邊欄位**
 
-在`.container` 中增加 `aside` 相關 html， css 自動判斷有側邊欄位。
+在`container` 中增加 `aside` 相關 html， css 自動判斷有側邊欄位。
 
 ```html
 <main class="innerPage">

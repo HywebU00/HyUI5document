@@ -423,12 +423,546 @@ HyUI5 更新將 header 拆成`headTop`和`mainMenu`區塊，方便背景延伸�
 <!-- tabs:end -->
 
 <script>
+function _jsParents(element, elementCheck) {
+  const matched = [];
+
+  const elements = typeof element === 'string' ? document.querySelectorAll(element) : element;
+
+  // 取得每個元素的所有父節點，直到 <html>
+  function _getParents(el) {
+    while (el.parentNode && el.parentNode !== document.documentElement) {
+      matched.push(el.parentNode);
+      el = el.parentNode;
+    }
+  }
+
+  // 處理集合與單一元素
+  if (elements) {
+    if (elements.length === undefined) {
+      _getParents(elements);
+    } else if (elements.nodeName !== 'SELECT') {
+      elements.forEach(_getParents);
+    }
+  }
+
+  // 根據 elementCheck 過濾父節點
+  const filtered = matched.filter((parent) => {
+    if (!elementCheck) {
+      return true;
+    } else if (elementCheck[0] === '#') {
+      return parent.id === elementCheck.slice(1);
+    } else if (elementCheck[0] === '.') {
+      return parent.classList.contains(elementCheck.slice(1));
+    } else if (typeof elementCheck === 'string') {
+      return parent.localName === elementCheck.toLowerCase();
+    } else {
+      return parent === elementCheck;
+    }
+  });
+
+  // 利用 Set 來進行去重複，並使用reverse()反轉順序
+  return Array.from(new Set(filtered)).reverse();
+}
+
+// 亂數數字
+function _randomNumber(max) {
+  let letter = '1234567890';
+  let number = '';
+
+  for (let i = 0; i < max; i++) number += letter.charAt(Math.floor(Math.random() * letter.length));
+  return number;
+}
+
+// 亂數英文字
+function _randomLetter(max) {
+  let letter = 'abcdefghijklmnopqrstuvwxyz';
+  let text = '';
+
+  for (let i = 0; i < max; i++) text += letter.charAt(Math.floor(Math.random() * letter.length));
+  return text;
+}
+
+// 改變標籤
+// 改變標籤
+function _changeTag(oldTag, newTag) {
+  // 檢查 oldTag 是否存在於 DOM 中
+  if (!oldTag || !oldTag.parentNode) return;
+
+  const newTagElem = document.createElement(newTag);
+  // 複製所有屬性
+  for (const attr of oldTag.attributes) {
+    newTagElem.setAttribute(attr.name, attr.value);
+  }
+
+  // 增加所有子節點
+  while (oldTag.firstChild) {
+    newTagElem.appendChild(oldTag.firstChild);
+  }
+
+  // 使用 replaceWith 替換舊標籤，語法更簡潔
+  oldTag.replaceWith(newTagElem);
+}
+
+function _toggleDropdown(elem, con, autoClose = true) {
+  const body = document.querySelector('body');
+  const targetSelect = document.querySelector(elem);
+  const targetSelectCon = document.querySelector(con);
+  if (!targetSelectCon) return;
+
+  if (!targetSelect) {
+    targetSelectCon.style.display = 'block';
+    return;
+  }
+  let checkDisplay = window.getComputedStyle(targetSelectCon).display === 'none';
+  const id = `ts_${_randomLetter(3)}${_randomNumber(3)}`;
+
+  if (checkDisplay) {
+    targetSelect.setAttribute('aria-expanded', 'false');
+  } else {
+    targetSelect.setAttribute('aria-expanded', 'true');
+    targetSelect.classList.add('active');
+  }
+  targetSelect.setAttribute('aria-haspopup', 'true');
+  targetSelect.setAttribute('aria-controls', `${id}_con`);
+  targetSelect.setAttribute('id', id);
+  targetSelectCon.setAttribute('id', `${id}_con`);
+  targetSelectCon.setAttribute('aria-labelledby', id);
+
+  targetSelect.addEventListener('click', (e) => {
+    let expanded = targetSelect.getAttribute('aria-expanded');
+    expanded === 'true' ? closeCon() : openCon();
+  });
+  function openCon() {
+    targetSelect.setAttribute('aria-expanded', 'true');
+    targetSelect.classList.add('active');
+    _jsSlideDown(targetSelectCon);
+  }
+  function closeCon() {
+    targetSelect.setAttribute('aria-expanded', 'false');
+    targetSelect.classList.remove('active');
+    _jsSlideUp(targetSelectCon);
+    targetSelect.focus();
+  }
+  body.addEventListener('keydown', (e) => {
+    let allTarget = targetSelectCon.querySelectorAll('a, button, input, textarea, select');
+    const firstTarget = allTarget[0];
+    const lastTarget = [...allTarget].at(-1);
+
+    if (targetSelect.getAttribute('aria-expanded') === 'true') {
+      if (e.code === 'Tab') {
+        if (e.target === targetSelect && e.shiftKey) {
+          closeCon();
+        } else if (e.target === firstTarget && e.shiftKey) {
+          e.preventDefault();
+          targetSelect.focus();
+        } else if (e.target === lastTarget && !e.shiftKey) {
+          e.preventDefault();
+          closeCon();
+        }
+      }
+      //Escape
+      else if (e.code === 'Escape') {
+        targetSelect.setAttribute('aria-expanded', 'false');
+        _jsSlideUp(targetSelectCon);
+        targetSelect.focus();
+      }
+    }
+  });
+
+  if (autoClose) {
+    // 點擊其他地方關閉;
+    body.addEventListener('click', (e) => {
+      let isInsideTarget = _jsParents(e.target, targetSelectCon).length === 0;
+
+      if (targetSelect.getAttribute('aria-expanded') === 'true' && e.target !== targetSelect && isInsideTarget) {
+        targetSelect.setAttribute('aria-expanded', 'false');
+        targetSelect.classList.remove('active');
+        _jsSlideUp(targetSelectCon);
+      }
+    });
+  }
+
+  window.addEventListener('resize', (e) => {
+    if (!checkDisplay) return;
+    targetSelect.setAttribute('aria-expanded', 'false');
+    targetSelect.classList.remove('active');
+    _jsSlideUp(targetSelectCon);
+  });
+}
+
+
+function mainMenu(obj) {
+  // RWD切換判斷，與_variable.scss 的 --RWDWidth連動
+  const setRWDWidth = parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--RWDWidth'));
+  // 增加透明黑底
+  let overlay = document.querySelector('.overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    document.body.insertAdjacentElement('afterbegin', overlay);
+  }
+
+  const body = document.querySelector('body');
+  const header = document.querySelector('header');
+  const headTop = document.querySelector('.headTop');
+  const { sticky = true, needLink = false, mega = false } = obj;
+  const mainMenu = document.querySelector('.mainMenu');
+  if (mainMenu) {
+    const menu = mainMenu.querySelector('nav');
+
+    // 有下層的增加 hasChild 的 class
+    const checkChild = menu.querySelectorAll('li ul');
+    checkChild.forEach((item) => item.parentNode.classList.add('hasChild'));
+  }
+  // 檢查子選單是否超出視窗邊界
+  function _checkBorder(e) {
+    if (mega) return;
+    // 抓出該項目以下有多少層級
+    const nextUl = e.querySelectorAll('ul');
+    //確定最後一層ul的父層li共有幾個
+    const hasChildLi = _jsParents([...nextUl].at(-1), 'li');
+
+    // 如果只有一層就不需要
+    if (hasChildLi.length <= 1) return;
+
+    // 確定選項的寬度 * 選項有幾層，由於第一層是直接向下不會左右展開，所以需要-1
+    const checkUlWidth = hasChildLi[0].offsetWidth * hasChildLi.length - 1 || 0;
+
+    //查詢第一層的位置
+    const objectRect = hasChildLi[0].getBoundingClientRect();
+
+    // 如果第一層左邊 + 其他層寬度超過視窗的寬度，則新增leftSlider
+    if (window.outerWidth < objectRect.left + checkUlWidth) {
+      hasChildLi[0].classList.add('leftSlider');
+    } else {
+      hasChildLi[0].classList.remove('leftSlider');
+    }
+  }
+
+  // 滑鼠滑入
+  function _handleMouseenter(e) {
+    e.target.classList.add('active');
+    e.target.querySelector('a').setAttribute('aria-expanded', 'true');
+    _checkBorder(e.target);
+  }
+
+  // 滑鼠滑出
+  function _handleMouseleave(e) {
+    e.target.classList.remove('active');
+    e.target.querySelector('a').setAttribute('aria-expanded', 'false');
+    e.target.querySelector('ul').style.removeProperty('top');
+  }
+
+  // 選單層級展開fn
+  function _toggleAccordion(item, con) {
+    const nodeNameCheck = item.nodeName.toLowerCase();
+
+    let content = item.parentNode.querySelector(con);
+    if (window.getComputedStyle(content).display !== 'none') {
+      item.setAttribute('aria-expanded', 'false');
+      item.classList.remove('active');
+    } else {
+      item.setAttribute('aria-expanded', 'true');
+      item.classList.add('active');
+    }
+    _jsSlideToggle(content);
+
+    const siblings = [...item.parentNode.parentNode.children].filter((child) => child !== item.parentNode);
+
+    siblings.forEach((j) => {
+      if (j.querySelector(con)) {
+        let target = j.querySelector(con);
+        _jsSlideUp(target);
+        j.querySelector(nodeNameCheck).setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // 桌面版選單初始化與事件綁定
+  function _initDesktopMenu() {
+    if (mainMenu) {
+      const menu = mainMenu.querySelector('nav');
+      const hasChild = menu.querySelectorAll('.hasChild');
+      // 是否為megaMenu
+      if (mega) {
+        menu.classList.add('megaMenu');
+        menu.classList.remove('menu');
+        const megaMenuChild = menu.querySelectorAll(' ul ul .hasChild > a');
+        megaMenuChild.forEach((i) => {
+          i.removeAttribute('aria-haspopup');
+        });
+      }
+
+      // 是否選單固定
+      if (sticky) {
+        const headerMargin = parseInt(window.getComputedStyle(header).marginBottom.replace('px', ''));
+
+        window.addEventListener('scroll', function () {
+          if (window.outerWidth > setRWDWidth) {
+            if (headTop.clientHeight < window.scrollY) {
+              header.classList.add('sticky');
+              headTop.style.marginBottom = `${headerMargin + mainMenu.clientHeight}px`;
+            } else {
+              header.classList.remove('sticky');
+              headTop.style.marginBottom = `${headerMargin}px`;
+            }
+          } else {
+            headTop.removeAttribute('style');
+          }
+        });
+      }
+
+      // 使用事件委派處理滑鼠移入和移出事件
+      menu.addEventListener(
+        'mouseenter',
+        (e) => {
+          if (e.target.matches('.hasChild')) {
+            _handleMouseenter(e);
+          }
+        },
+        true
+      );
+
+      menu.addEventListener(
+        'mouseleave',
+        (e) => {
+          if (e.target.matches('.hasChild')) {
+            _handleMouseleave(e);
+          }
+        },
+        true
+      );
+
+      //無障礙操作
+
+      menu.addEventListener('keydown', (e) => {
+        const checkHasSubmenu = e.target.parentNode.classList.contains('hasChild');
+        const lastTarget = [...e.target.closest('ul').querySelectorAll('a,button,input,textarea,select')].at(-1);
+        console.log(_jsParents(e.target, 'li'));
+
+        _checkBorder(e.target.parentNode);
+        if (window.outerWidth <= setRWDWidth) return;
+
+        if (e.code === 'Tab' && !e.shiftKey) {
+          const siblings = [...e.target.parentNode.parentNode.children].filter((child) => child !== e.target.parentNode);
+          if (checkHasSubmenu) {
+            e.target.parentNode.classList.add('active');
+            e.target.setAttribute('aria-expanded', 'true');
+          }
+          siblings.forEach((j) => {
+            j.classList.remove('active');
+            j.classList.contains('hasChild') ? j.querySelector('a').setAttribute('aria-expanded', 'false') : null;
+          });
+          if (e.target === lastTarget) {
+            _jsParents(e.target, 'li').forEach((j) => j.classList.remove('active'));
+          }
+        } else if (e.code === 'Tab' && e.shiftKey) {
+          if (checkHasSubmenu) {
+            e.target.parentNode.classList.remove('active');
+            e.target.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      hasChild.forEach((i) => {
+        const id = `menu_${_randomLetter(3)}${_randomNumber(3)}`;
+        const childA = i.querySelector('a');
+        const childUl = i.querySelector('ul');
+        childA.setAttribute('aria-expanded', 'false');
+        childA.setAttribute('aria-haspopup', 'true');
+        childA.setAttribute('id', id);
+        childA.setAttribute('aria-controls', `${id}_con`);
+        childUl.setAttribute('id', `${id}_con`);
+        childUl.setAttribute('aria-labelledby', id);
+      });
+    }
+  }
+
+  _initDesktopMenu();
+
+  // 手機版選單初始化與事件綁定
+  function _initMobileMenu() {
+    const header = document.querySelector('header');
+    const mobileMenu = document.createElement('nav');
+    mobileMenu.setAttribute('id', 'mobileMenu');
+    mobileMenu.setAttribute('aria-labelledby', 'mobileMainMenuBtn');
+
+    // 新增手機版主選單容器
+    const mobileMainMenuBox = document.createElement('div');
+    mobileMainMenuBox.classList.add('mobileMainMenuBox');
+
+    // 複製主選單
+    if (mainMenu) {
+      const menu = mainMenu.querySelector('nav');
+      const mainMenuClone = menu.cloneNode(true);
+      mainMenuClone.classList.remove('mainMenu', 'menu');
+      mainMenuClone.classList.add('mobileMainMenu');
+      // 將 主選單 加入到 手機版主選單
+      mobileMainMenuBox.insertAdjacentElement('afterbegin', mainMenuClone);
+
+      // 轉換標籤
+      _changeTag(mainMenuClone, 'div');
+    }
+
+    // 複製top選單
+    const topNav = document.querySelector('.topNav');
+    if (topNav) {
+      const topNavClone = topNav.cloneNode(true);
+
+      topNavClone.querySelector('.fontSize')?.remove();
+      topNavClone.querySelector('.topSearch')?.remove();
+      topNavClone.querySelector('#aU')?.remove();
+      // 將 top選單 加入到 手機版主選單
+      mobileMainMenuBox.insertAdjacentElement('beforeend', topNavClone);
+      _changeTag(topNavClone, 'div');
+    }
+
+    // 將 手機版主選單 加入到 手機版主選單(多包一層div)
+    mobileMenu.insertAdjacentElement('afterbegin', mobileMainMenuBox);
+    // 將 手機版主選單 加入到 header 前
+    header?.insertAdjacentElement('beforebegin', mobileMenu);
+
+    // 點擊選單按鈕 執行 展開側邊選單函式
+    const mobileMainMenuBtn = document.querySelector('#mobileMainMenuBtn');
+    mobileMainMenuBtn.setAttribute('aria-controls', 'mobileMenu');
+    mobileMainMenuBtn.setAttribute('aria-expanded', 'false');
+    mobileMainMenuBtn.setAttribute('aria-pressed', 'false');
+    mobileMainMenuBtn.setAttribute('aria-haspopup', 'true');
+
+    // 展開側邊選單函式
+    function _showSidebar() {
+      mobileMenu.style.opacity = '1';
+      mobileMenu.style.display = 'block';
+      mobileMainMenuBtn.setAttribute('aria-expanded', 'true');
+      mobileMainMenuBtn.setAttribute('aria-pressed', 'true');
+
+      setTimeout(() => {
+        mobileMenu.style.transform = 'translateX(0px)';
+        mobileMenu.classList.add('open');
+      }, 0);
+      mobileMainMenuBtn.classList.add('active');
+      if (window.outerWidth < setRWDWidth) body.classList.add('noscroll');
+      _jsFadeIn(overlay);
+      overlay.style.zIndex = '90';
+    }
+
+    // 隱藏側邊選單函式
+    function _hideSidebar(overlayFN = true) {
+      mobileMenu.style.transform = 'translateX(-100%)';
+      mobileMainMenuBtn.setAttribute('aria-expanded', 'false');
+      mobileMainMenuBtn.setAttribute('aria-pressed', 'false');
+
+      // 等待 300ms 的動畫時間
+      setTimeout(() => {
+        mobileMenu.removeAttribute('style');
+      }, 300);
+
+      mobileMenu.classList.remove('open');
+      body.classList.remove('noscroll');
+      mobileMainMenuBtn.classList.remove('active');
+      overlay.style.zIndex = '';
+      if (overlayFN) _jsFadeOut(overlay);
+    }
+
+    mobileMainMenuBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (mobileMainMenuBtn.getAttribute('aria-expanded') === 'true') {
+        _hideSidebar();
+      } else {
+        _showSidebar();
+      }
+      mobileMainMenuBtn.focus();
+    });
+
+    overlay.addEventListener('click', () => _hideSidebar());
+
+    // 使用事件委派處理手機選單的點擊事件
+    mobileMenu.addEventListener('click', (e) => {
+      const target = e.target;
+      const hasChildLi = target.closest('.hasChild');
+
+      if (hasChildLi) {
+        let childControl;
+        if (!needLink) {
+          childControl = hasChildLi.querySelector('a');
+          if (target === childControl) {
+            e.preventDefault();
+            _toggleAccordion(childControl, 'ul');
+          }
+        } else {
+          childControl = hasChildLi.querySelector('.nextLvl');
+          if (target === childControl) {
+            _toggleAccordion(childControl, 'ul');
+          }
+        }
+      }
+    });
+
+    // 初始設定
+    const mobileMenuLiHasChild = mobileMenu.querySelectorAll('li.hasChild');
+    mobileMenuLiHasChild.forEach((i) => {
+      let childControl;
+      if (!needLink) {
+        childControl = i.querySelector('a');
+        childControl.setAttribute('role', 'button');
+      } else {
+        i.classList.add('needLink');
+        const nextA = i.querySelector('a');
+        const nextBtn = document.createElement('button');
+        nextBtn.classList.add('nextLvl');
+        nextA.insertAdjacentElement('afterend', nextBtn);
+        nextBtn.setAttribute('id', nextA.getAttribute('id'));
+        childControl = nextBtn;
+      }
+
+      // 無障礙設定 -- mobile
+      const id = `mobileMenu_${_randomLetter(3)}${_randomNumber(3)}`;
+      const childUl = i.querySelector('ul');
+      childControl.setAttribute('aria-expanded', 'false');
+      childControl.setAttribute('aria-haspopup', 'true');
+      childControl.setAttribute('id', id);
+      childControl.setAttribute('aria-controls', `${id}_con`);
+      childUl.setAttribute('id', `${id}_con`);
+      childUl.setAttribute('aria-labelledby', id);
+    });
+
+    // 手機版鍵盤無障礙設定
+    const allMobileMenuTarget = mobileMenu.querySelectorAll('a,button,input,select');
+    body.addEventListener('keydown', (e) => {
+      if (e.code === 'Escape' && mobileMainMenuBtn.getAttribute('aria-expanded') === 'true') {
+        _hideSidebar();
+      } else if (e.code === 'Tab' && !e.shiftKey && e.target === mobileMainMenuBtn && mobileMainMenuBtn.getAttribute('aria-expanded') === 'true') {
+        e.preventDefault();
+        allMobileMenuTarget[0].focus();
+      } else if (e.code === 'Tab' && e.shiftKey && e.target === allMobileMenuTarget[0]) {
+        e.preventDefault();
+        mobileMainMenuBtn.focus();
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.outerWidth <= setRWDWidth) {
+        headTop.removeAttribute('style');
+      } else {
+        body.classList.remove('noscroll');
+        _hideSidebar();
+      }
+    });
+    const mobileSearchBtn = document.querySelector('#mobileSearchBtn');
+    if (!mobileSearchBtn) return;
+    mobileSearchBtn.addEventListener('click', () => _hideSidebar(false));
+  }
+  _initMobileMenu();
+}
+
+
+
   _toggleDropdown('.subNavList .fontSize > button', '.subNavList .fontSize ul'); //文字大小展開開關切換
   _toggleDropdown('.navList .fontSize > button', '.navList .fontSize ul'); //文字大小展開開關切換
   _toggleDropdown('header .subNavList .language > button', 'header .subNavList .language ul'); //語系開關切換
   _toggleDropdown('header .navList .language > button', 'header .navList .language ul'); //語系開關切換
   mainMenu({
-  sticky: true, // 是否置頂
+  sticky: false, // 是否置頂
   mega: false, // 是否megaMenu
   needLink: false, // 如果同時需要連結和下層功能時(手機版選單)
 });

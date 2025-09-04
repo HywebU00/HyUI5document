@@ -307,6 +307,29 @@ td:has(img){
 }
 </style>
 <script>
+  function tableAddDataAttributes() {
+  const el = document.querySelectorAll('.tableList');
+  if (el.length === 0) return;
+  el.forEach((i) => {
+    const tableItem = i.querySelectorAll('table');
+    tableItem.forEach((i) => {
+      _setTrAttr(i);
+      i.classList.add('loaded');
+    });
+  });
+  function _setTrAttr(i) {
+    const thList = i.querySelectorAll('th');
+    const trList = i.querySelectorAll('tr');
+    trList.forEach((trItem) => {
+      const tdList = trItem.querySelectorAll('td');
+      tdList.forEach((i, idx) => {
+        tdList[idx].dataset.tdTitle = `${thList[idx].textContent}`;
+      });
+    });
+  }
+}
+window.addEventListener('load', () => tableAddDataAttributes());
+
 function scrollTables() {
   const el = document.querySelectorAll('.tableScroll');
   if (el.length === 0) return;
@@ -372,4 +395,3 @@ function scrollTables() {
 }
 window.addEventListener('load', () => scrollTables());
 </script>
-<link rel="stylesheet" href="https://hywebu00.github.io/HyUI_5/css/style.css" />
