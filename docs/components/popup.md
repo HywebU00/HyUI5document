@@ -13,6 +13,10 @@
 - `data-fancybox`啟動燈箱功能
 - `data-src`對應燈箱內容的`id`，可自行變更
 
+```html
+<button type="button" data-fancybox data-src="#popup">彈出對話框</button>
+```
+
 !>因為是對應 id，故`data-src`需要加`#`。
 
 燈箱內容需增加
@@ -26,7 +30,7 @@
 
 若需要一進入就開燈箱時，在燈箱內容上增加`showPopup`的 class 即可。
 
-!>一進入就開燈箱就算沒有按鈕，還是需要輸入 id。
+!>若是要一進入頁面就開燈箱的話，就算沒有按鈕，還是需要輸入 `id`。
 
 <!-- tabs:start -->
 
@@ -251,6 +255,10 @@ data-caption="圖片說明">
 
 <!-- tabs:end -->
 <style>
+  .fancybox__dialog #popup,
+  .fancybox__dialog #popup2{
+    display:block !important;
+  }
   [data-src="#popup"]{
     margin-bottom:10px;
   }
@@ -260,7 +268,8 @@ data-caption="圖片說明">
 </style>
 
 <script>
-  function popupFn() {
+  
+function popupFn() {
   const fancyBoxElem = document.querySelectorAll('[data-fancybox]');
   if (fancyBoxElem.length === 0) return;
   // 確認引入語系
@@ -272,11 +281,36 @@ data-caption="圖片說明">
     if (path === undefined) return;
     const match = path?.match(/fancybox\/l10n/);
     const fancyboxPath = match ? match[0] : null;
+
     if (!fancyboxPath) return;
     const fileName = path?.split('/').pop();
     const locale = fileName?.split('.')[0];
     lang = locale;
   });
+
+  function fancyBoxFn(eventName, Fancybox) {
+    if (eventName === 'Carousel.ready') {
+      let closeBtn = document.querySelector('[data-fancybox-close]');
+      closeBtn?.insertAdjacentHTML('afterbegin', `<span>${Fancybox.l10n[lang].CLOSE}</span>`);
+      closeBtn?.setAttribute('aria-label', Fancybox.l10n[lang].CLOSE);
+      closeBtn?.focus();
+
+      let popupBox = Fancybox.getSlide().el;
+      let allTarget = popupBox.querySelectorAll('a,button,input,select');
+
+      const lastElement = allTarget[allTarget.length - 1];
+      popupBox.addEventListener('keydown', (e) => {
+        const target = e.target;
+        if (target === lastElement && e.code === 'Tab' && !e.shiftKey) {
+          e.preventDefault();
+          closeBtn?.focus();
+        } else if (target === closeBtn && e.code === 'Tab' && e.shiftKey) {
+          e.preventDefault();
+          lastElement.focus();
+        }
+      });
+    }
+  }
 
   // 一般設定
   Fancybox.bind('[data-fancybox]', {
@@ -284,12 +318,7 @@ data-caption="圖片說明">
     on: {
       '*': (fancyboxRef, eventName) => {
         // 關閉按鈕無障礙問題
-        if (eventName === 'done') {
-          let closeBtn = fancyboxRef.container?.querySelector('[data-fancybox-close]');
-          closeBtn?.insertAdjacentHTML('afterbegin', `<span>${fancyboxRef.options.l10n.CLOSE}</span>`);
-          closeBtn.setAttribute('aria-label', fancyboxRef.options.l10n.CLOSE);
-          closeBtn.focus();
-        }
+        fancyBoxFn(eventName, Fancybox);
       },
     },
   });
@@ -309,12 +338,7 @@ data-caption="圖片說明">
         on: {
           '*': (fancyboxRef, eventName) => {
             // 關閉按鈕無障礙問題
-            if (eventName === 'done') {
-              let closeBtn = fancyboxRef.container?.querySelector('[data-fancybox-close]');
-              closeBtn?.insertAdjacentHTML('afterbegin', `<span>${fancyboxRef.options.l10n.CLOSE}</span>`);
-              closeBtn.setAttribute('aria-label', fancyboxRef.options.l10n.CLOSE);
-              closeBtn.focus();
-            }
+            fancyBoxFn(eventName, Fancybox);
           },
         },
       }
