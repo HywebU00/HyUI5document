@@ -22,6 +22,29 @@ HyUI 使用 `swiper` 的輪播模組，目前 hyUI **vendor** 內含 **swiper**�
 <script src="vendor/swiper/swiper-bundle.min.js"></script>
 ```
 
+## swiper 基本 Html 結構
+
+```html
+<div class="swiper">
+  <div class="swiper-wrapper">
+    <!-- 輪播內容 -->
+    <div class="swiper-slide">Slide 1</div>
+    <div class="swiper-slide">Slide 2</div>
+    <div class="swiper-slide">Slide 3</div>
+    ...
+  </div>
+  <!-- 圓點 -->
+  <div class="swiper-pagination"></div>
+
+  <!-- 左右切換按鈕 -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+```
+
+- swiper 不會強制圓點/箭頭放置位置，只要 class 有對應到就可以。
+- swiper-wrapper 不要設定任何會影響寬度或是排版的 css，例如 padding/justify-content
+
 ## swiper 的基本設定
 
 使用設定以 `swiper` 官方文件為準。<br/>
