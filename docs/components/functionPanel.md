@@ -29,49 +29,49 @@
     <div class="shareBoxList">
       <ul>
         <li>
-          <a href="#"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/share/facebook.svg" alt="facebook" /></a>
+          <a href="#"><img src="https://hywebu00.github.io/HyUI5/images/basic/icon/share/facebook.svg" alt="facebook" /></a>
         </li>
         <li>
-          <a href="#"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/share/x.svg" alt="x" /></a>
+          <a href="#"><img src="https://hywebu00.github.io/HyUI5/images/basic/icon/share/x.svg" alt="x" /></a>
         </li>
         <li>
-          <a href="#"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/share/threads.svg" alt="Threads" /></a>
+          <a href="#"><img src="https://hywebu00.github.io/HyUI5/images/basic/icon/share/threads.svg" alt="Threads" /></a>
         </li>
         <li>
-          <a href="#"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/share/line.svg" alt="line" /></a>
+          <a href="#"><img src="https://hywebu00.github.io/HyUI5/images/basic/icon/share/line.svg" alt="line" /></a>
         </li>
         <li>
-          <a href="#"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/share/youtube.svg" alt="youtube" /></a>
+          <a href="#"><img src="https://hywebu00.github.io/HyUI5/images/basic/icon/share/youtube.svg" alt="youtube" /></a>
         </li>
         <li>
-          <a href="#"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/share/instagram.svg" alt="instagram" /></a>
+          <a href="#"><img src="https://hywebu00.github.io/HyUI5/images/basic/icon/share/instagram.svg" alt="instagram" /></a>
         </li>
         <li>
-          <a href="#"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/share/linkedin.svg" alt="LinkedIn" /></a>
+          <a href="#"><img src="https://hywebu00.github.io/HyUI5/images/basic/icon/share/linkedin.svg" alt="LinkedIn" /></a>
         </li>
         <li>
-          <a href="#"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/share/pinterest.svg" alt="Pinterest" /></a>
+          <a href="#"><img src="https://hywebu00.github.io/HyUI5/images/basic/icon/share/pinterest.svg" alt="Pinterest" /></a>
         </li>
         <li>
-          <a href="#"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/share/whatsapp.svg" alt="Whatsapp" /></a>
+          <a href="#"><img src="https://hywebu00.github.io/HyUI5/images/basic/icon/share/whatsapp.svg" alt="Whatsapp" /></a>
         </li>
         <li>
-          <a href="#"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/share/telegram.svg" alt="Telegram" /></a>
+          <a href="#"><img src="https://hywebu00.github.io/HyUI5/images/basic/icon/share/telegram.svg" alt="Telegram" /></a>
         </li>
         <li>
-          <a href="#"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/share/talk.svg" alt="Talk" /></a>
+          <a href="#"><img src="https://hywebu00.github.io/HyUI5/images/basic/icon/share/talk.svg" alt="Talk" /></a>
         </li>
         <li>
-          <a href="#"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/share/podcast.svg" alt="Podcast" /></a>
+          <a href="#"><img src="https://hywebu00.github.io/HyUI5/images/basic/icon/share/podcast.svg" alt="Podcast" /></a>
         </li>
         <li>
-          <a href="#"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/share/discord.svg" alt="Discord" /></a>
+          <a href="#"><img src="https://hywebu00.github.io/HyUI5/images/basic/icon/share/discord.svg" alt="Discord" /></a>
         </li>
         <li>
-          <a href="#"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/share/plurk.svg" alt="Plurk" /></a>
+          <a href="#"><img src="https://hywebu00.github.io/HyUI5/images/basic/icon/share/plurk.svg" alt="Plurk" /></a>
         </li>
         <li>
-          <a href="#"><img src="https://hywebu00.github.io/HyUI_5/images/basic/icon/share/rss.svg" alt="RSS" /></a>
+          <a href="#"><img src="https://hywebu00.github.io/HyUI5/images/basic/icon/share/rss.svg" alt="RSS" /></a>
         </li>
       </ul>
     </div>

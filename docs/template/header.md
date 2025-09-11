@@ -26,7 +26,7 @@ HyUI5 更新將 header 拆成`headTop`和`mainMenu`區塊，方便背景延伸�
 <!-- 手機版主選單按鈕 End -->
 <!-- 網站標題 Start -->
 <h1>
-<a href="index.html"><img src="https://hywebu00.github.io/HyUI_5/images/footer_logo.png" alt="網站標題" />HyUI<span>Kit5</span></a>
+<a href="index.html"><img src="https://hywebu00.github.io/HyUI5/images/footer_logo.png" alt="網站標題" />HyUI<span>Kit5</span></a>
 </h1>
 <!-- 網站標題 End -->
 <!-- navigation Start -->

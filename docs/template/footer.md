@@ -10,7 +10,7 @@
     <div class="container">
       <div class="infoBox">
         <div class="footerLogo">
-          <a href="index.html"><img src="https://hywebu00.github.io/HyUI_5/images/footer_logo.png" alt="網站標題" />HyUI<span>Kit5</span></a>
+          <a href="index.html"><img src="https://hywebu00.github.io/HyUI5/images/footer_logo.png" alt="網站標題" />HyUI<span>Kit5</span></a>
         </div>
         <p class="copyright">Hyweb Technology Co., Ltd.© 2015 All Rights Reserved</p>
         <ul class="footerInfo">
@@ -28,10 +28,10 @@
       <div class="infoBox">
         <div class="footerIcon">
           <a target="_blank" href="#">
-            <img src="https://hywebu00.github.io/HyUI_5/images/basic/accessibility.jpg" alt="通過AA檢測等級無障礙網頁檢測" />
+            <img src="https://hywebu00.github.io/HyUI5/images/basic/accessibility.jpg" alt="通過AA檢測等級無障礙網頁檢測" />
           </a>
           <a target="_blank" href="#">
-            <img src="https://hywebu00.github.io/HyUI_5/images/basic/egov.png" alt="我的e政府" />
+            <img src="https://hywebu00.github.io/HyUI5/images/basic/egov.png" alt="我的e政府" />
           </a>
         </div>
         <div class="footerInfo2">

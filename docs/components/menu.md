@@ -3,7 +3,7 @@
 ?>相關 css：scss/components/`_menu.scss`
 
 **主選單標籤**
-為`mainMenu`及([範例](https://hywebu00.github.io/HyUI_5/mp.html))，mainMenu 為判斷使用必須保留。
+為`mainMenu`及([範例](https://hywebu00.github.io/HyUI5/mp.html))，mainMenu 為判斷使用必須保留。
 
 主選單在手機版預設放置於畫面左方`sidebar`，`mobileMainMenuBtn`按鈕用於打開收合左側選單。
 

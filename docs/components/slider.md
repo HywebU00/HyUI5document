@@ -104,14 +104,14 @@ swiperNavKeyDownFn(sliderFor.thumbs.swiper, sliderFor); //有小縮圖時，需�
         <div class="swiper-slide">
           <a href="#">
             <div class="pic">
-              <img src="https://hywebu00.github.io/HyUI_5/images/demo/banner.png" alt="第1張圖說" />
+              <img src="https://hywebu00.github.io/HyUI5/images/demo/banner.png" alt="第1張圖說" />
             </div>
           </a>
         </div>
         <div class="swiper-slide">
           <a href="#">
             <div class="pic">
-              <img src="https://hywebu00.github.io/HyUI_5/images/demo/banner.png" alt="第1張圖說" />
+              <img src="https://hywebu00.github.io/HyUI5/images/demo/banner.png" alt="第1張圖說" />
             </div>
           </a>
         </div>
@@ -140,14 +140,14 @@ swiperNavKeyDownFn(sliderFor.thumbs.swiper, sliderFor); //有小縮圖時，需�
         <div class="swiper-slide">
           <a href="#">
             <div class="pic">
-              <img src="https://hywebu00.github.io/HyUI_5/images/demo/banner.png" alt="第1張圖說" />
+              <img src="https://hywebu00.github.io/HyUI5/images/demo/banner.png" alt="第1張圖說" />
             </div>
           </a>
         </div>
         <div class="swiper-slide">
           <a href="#">
             <div class="pic">
-              <img src="https://hywebu00.github.io/HyUI_5/images/demo/banner.png" alt="第1張圖說" />
+              <img src="https://hywebu00.github.io/HyUI5/images/demo/banner.png" alt="第1張圖說" />
             </div>
           </a>
         </div>
@@ -200,49 +200,49 @@ const mpSlider = new Swiper('.mpSlider .swiper', {
       <div class="swiper-slide">
         <a class="item" href="#">
           <div class="pic">
-            <img src="https://hywebu00.github.io/HyUI_5/images/demo/ad_01.jpg" alt="第1張圖說" />
+            <img src="https://hywebu00.github.io/HyUI5/images/demo/ad_01.jpg" alt="第1張圖說" />
           </div>
         </a>
       </div>
       <div class="swiper-slide">
         <a class="item" href="#">
           <div class="pic">
-            <img src="https://hywebu00.github.io/HyUI_5/images/demo/ad_02.jpg" alt="第2張圖說" />
+            <img src="https://hywebu00.github.io/HyUI5/images/demo/ad_02.jpg" alt="第2張圖說" />
           </div>
         </a>
       </div>
       <div class="swiper-slide">
         <a class="item" href="#">
           <div class="pic">
-            <img src="https://hywebu00.github.io/HyUI_5/images/demo/ad_03.jpg" alt="第3張圖說" />
+            <img src="https://hywebu00.github.io/HyUI5/images/demo/ad_03.jpg" alt="第3張圖說" />
           </div>
         </a>
       </div>
       <div class="swiper-slide">
         <a class="item" href="#">
           <div class="pic">
-            <img src="https://hywebu00.github.io/HyUI_5/images/demo/ad_04.jpg" alt="第4張圖說" />
+            <img src="https://hywebu00.github.io/HyUI5/images/demo/ad_04.jpg" alt="第4張圖說" />
           </div>
         </a>
       </div>
       <div class="swiper-slide">
         <a class="item" href="#">
           <div class="pic">
-            <img src="https://hywebu00.github.io/HyUI_5/images/demo/ad_05.jpg" alt="第5張圖說" />
+            <img src="https://hywebu00.github.io/HyUI5/images/demo/ad_05.jpg" alt="第5張圖說" />
           </div>
         </a>
       </div>
       <div class="swiper-slide">
         <a class="item" href="#">
           <div class="pic">
-            <img src="https://hywebu00.github.io/HyUI_5/images/demo/ad_06.jpg" alt="第6張圖說" />
+            <img src="https://hywebu00.github.io/HyUI5/images/demo/ad_06.jpg" alt="第6張圖說" />
           </div>
         </a>
       </div>
       <div class="swiper-slide">
         <a class="item" href="#">
           <div class="pic">
-            <img src="https://hywebu00.github.io/HyUI_5/images/demo/ad_07.jpg" alt="第7張圖說" />
+            <img src="https://hywebu00.github.io/HyUI5/images/demo/ad_07.jpg" alt="第7張圖說" />
           </div>
         </a>
       </div>
@@ -335,27 +335,27 @@ const linkSlider = new Swiper('.linkSlider .swiper', {
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="pic">
-              <img src="https://hywebu00.github.io/HyUI_5/images/demo/01.jpg" alt="第1張圖說" />
+              <img src="https://hywebu00.github.io/HyUI5/images/demo/01.jpg" alt="第1張圖說" />
             </div>
           </div>
           <div class="swiper-slide">
             <div class="pic">
-              <img src="https://hywebu00.github.io/HyUI_5/images/demo/02.jpg" alt="第2張圖說" />
+              <img src="https://hywebu00.github.io/HyUI5/images/demo/02.jpg" alt="第2張圖說" />
             </div>
           </div>
           <div class="swiper-slide">
             <div class="pic">
-              <img src="https://hywebu00.github.io/HyUI_5/images/demo/03.jpg" alt="第3張圖說" />
+              <img src="https://hywebu00.github.io/HyUI5/images/demo/03.jpg" alt="第3張圖說" />
             </div>
           </div>
           <div class="swiper-slide">
             <div class="pic">
-              <img src="https://hywebu00.github.io/HyUI_5/images/demo/04.jpg" alt="第4張圖說" />
+              <img src="https://hywebu00.github.io/HyUI5/images/demo/04.jpg" alt="第4張圖說" />
             </div>
           </div>
           <div class="swiper-slide">
             <div class="pic">
-              <img src="https://hywebu00.github.io/HyUI_5/images/demo/05.jpg" alt="第5張圖說" />
+              <img src="https://hywebu00.github.io/HyUI5/images/demo/05.jpg" alt="第5張圖說" />
             </div>
           </div>
         </div>
@@ -376,7 +376,7 @@ const linkSlider = new Swiper('.linkSlider .swiper', {
           <div class="swiper-slide">
             <div class="item">
               <div class="pic">
-                <img src="https://hywebu00.github.io/HyUI_5/images/demo/01.jpg" alt />
+                <img src="https://hywebu00.github.io/HyUI5/images/demo/01.jpg" alt />
               </div>
               <div class="caption"><span>第1張圖說</span></div>
             </div>
@@ -384,7 +384,7 @@ const linkSlider = new Swiper('.linkSlider .swiper', {
           <div class="swiper-slide">
             <div class="item">
               <div class="pic">
-                <img src="https://hywebu00.github.io/HyUI_5/images/demo/02.jpg" alt />
+                <img src="https://hywebu00.github.io/HyUI5/images/demo/02.jpg" alt />
               </div>
               <div class="caption"><span>第2張圖說</span></div>
             </div>
@@ -392,7 +392,7 @@ const linkSlider = new Swiper('.linkSlider .swiper', {
           <div class="swiper-slide">
             <div class="item">
               <div class="pic">
-                <img src="https://hywebu00.github.io/HyUI_5/images/demo/03.jpg" alt />
+                <img src="https://hywebu00.github.io/HyUI5/images/demo/03.jpg" alt />
               </div>
               <div class="caption"><span>第3張圖說</span></div>
             </div>
@@ -400,7 +400,7 @@ const linkSlider = new Swiper('.linkSlider .swiper', {
           <div class="swiper-slide">
             <div class="item">
               <div class="pic">
-                <img src="https://hywebu00.github.io/HyUI_5/images/demo/04.jpg" alt />
+                <img src="https://hywebu00.github.io/HyUI5/images/demo/04.jpg" alt />
               </div>
               <div class="caption"><span>第4張圖說</span></div>
             </div>
@@ -408,7 +408,7 @@ const linkSlider = new Swiper('.linkSlider .swiper', {
           <div class="swiper-slide">
             <div class="item">
               <div class="pic">
-                <img src="https://hywebu00.github.io/HyUI_5/images/demo/05.jpg" alt />
+                <img src="https://hywebu00.github.io/HyUI5/images/demo/05.jpg" alt />
               </div>
               <div class="caption"><span>第5張圖說</span></div>
             </div>
